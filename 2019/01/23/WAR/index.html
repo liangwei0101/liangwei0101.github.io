@@ -13,11 +13,11 @@
 
     <title>
         
-          梁小生 | Blog
+          部署Spring Boot 的war包到Tomcat服务器 - 梁小生 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liangwei.com/i_dont_wanna_use_default_archives/">
+    <link rel="canonical" href="http://www.liangwei.com/2019/01/23/WAR/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -147,7 +147,184 @@
 
 
     <!-- Main Content -->
-    <!-- Default Archive layout, we use archives instead. -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liangwei.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('../../../../../img/article_bg.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#war" title="war">war</a>
+                        
+                          <a class="tag" href="/tags/#Tomcat" title="Tomcat">Tomcat</a>
+                        
+                          <a class="tag" href="/tags/#Spring Boot" title="Spring Boot">Spring Boot</a>
+                        
+                    </div>
+                    <h1>部署Spring Boot 的war包到Tomcat服务器</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 梁小生 on
+                        2019-01-23
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <ol>
+<li><p>在项目建立好以后，首先确定本地能正常跑起来</p>
+</li>
+<li><p>确定项目中有一个能访问的 REST API, 如果没有的话，会报404</p>
+</li>
+<li><p>修改 pom.xml文件</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除嵌入式tomcat插件避免与发布后的环境冲突</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>继承SpringBootServletInitializer ，覆盖configure()，把启动类Application注册进去。</p>
+ <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Application</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line"> public static void main(<span class="type">String</span>[] args) &#123;</span><br><span class="line">  <span class="type">SpringApplication</span>.run(<span class="type">Application</span>.<span class="keyword">class</span>, args);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 需要把web项目打成war包部署到外部tomcat运行时需要改变启动方式</span></span><br><span class="line"> <span class="meta">@Override</span></span><br><span class="line"> <span class="keyword">protected</span> <span class="type">SpringApplicationBuilder</span> configure(<span class="type">SpringApplicationBuilder</span> builder) &#123;</span><br><span class="line">     <span class="keyword">return</span> builder.sources(<span class="type">Application</span>.<span class="keyword">class</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>war包上传到linux服务器中webapps中，启动tomcat将自动解压</p>
+</li>
+<li><p>访问时的地址为：ip + 端口 + war包名称 + controller的请求路由地址</p>
+</li>
+<li><p>正常启动应该就能访问，如果不能访问，查看linux端口对外开放了没有</p>
+</li>
+</ol>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2019/01/23/linq/" data-toggle="tooltip" data-placement="top" title="Lambda 的记录">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/01/17/VueAndSpringBoot/" data-toggle="tooltip" data-placement="top" title="记一次Spring boot 和Vue的前后端分离的入门培训">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#war" title="war">war</a>
+                        
+                          <a class="tag" href="/tags/#Tomcat" title="Tomcat">Tomcat</a>
+                        
+                          <a class="tag" href="/tags/#Spring Boot" title="Spring Boot">Spring Boot</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://github.com/liangwei0101" target="_blank">github 梁伟</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
 
     <!-- Footer -->
     <!-- Footer -->

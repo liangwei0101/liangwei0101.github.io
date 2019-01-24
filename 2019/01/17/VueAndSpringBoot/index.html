@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -165,9 +165,9 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#Vue" title="Vue">Vue</a>
-                        
                           <a class="tag" href="/tags/#Spring Boot" title="Spring Boot">Spring Boot</a>
+                        
+                          <a class="tag" href="/tags/#Vue" title="Vue">Vue</a>
                         
                     </div>
                     <h1>记一次Spring boot 和Vue的前后端分离的入门培训</h1>
@@ -193,13 +193,28 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="Spring-Boot-And-Vue"><a href="#Spring-Boot-And-Vue" class="headerlink" title="Spring-Boot-And-Vue"></a>Spring-Boot-And-Vue</h1><h2 id="记一次Spring-Boot-和Vue的前后端分离的入门培训"><a href="#记一次Spring-Boot-和Vue的前后端分离的入门培训" class="headerlink" title="记一次Spring Boot 和Vue的前后端分离的入门培训"></a>记一次Spring Boot 和Vue的前后端分离的入门培训</h2><p>环境：<br>  <em>Node.js V10.15.0</em><br>  <em>Vue.js V2.5.21</em><br>  <em>yar: V1.13.0</em><br>  <em>Win10企业版</em><br>  <em>IDE:VScode &amp; IDEA</em></p>
+                <h1 id="Spring-Boot-And-Vue"><a href="#Spring-Boot-And-Vue" class="headerlink" title="Spring-Boot-And-Vue"></a>Spring-Boot-And-Vue</h1><h2 id="记一次Spring-Boot-和Vue的前后端分离培训"><a href="#记一次Spring-Boot-和Vue的前后端分离培训" class="headerlink" title="记一次Spring Boot 和Vue的前后端分离培训"></a>记一次Spring Boot 和Vue的前后端分离培训</h2><p>环境：<br>  <em>MySql: 14.14</em><br>  <em>Node.js V10.15.0</em><br>  <em>Vue.js V2.5.21</em><br>  <em>yar: V1.13.0</em><br>  <em>jdk: 1.8</em><br>  <em>Win10企业版</em><br>  <em>IDE:VScode &amp; IDEA</em></p>
+<h2 id="前后端分离"><a href="#前后端分离" class="headerlink" title="前后端分离"></a>前后端分离</h2><ul>
+<li><p>实现真正的前后端解耦。</p>
+</li>
+<li><p>核心思想是前端html页面通过ajax调用后端的restuful api接口并使用json数据进行交互。</p>
+</li>
+<li><p>前后端分离会为以后的大型分布式架构、弹性计算架构、微服务架构、多端化服务（多种客户端，例如：浏览器，安卓，IOS等等）打下坚实的基础。</p>
+</li>
+</ul>
 <h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><h3 id="Vue介绍"><a href="#Vue介绍" class="headerlink" title="Vue介绍"></a>Vue介绍</h3><ol>
 <li><p>Vue是一套用于构建用户界面的渐进式框架，网址：<a href="https://cn.vuejs.org/" target="_blank" rel="noopener">https://cn.vuejs.org/</a></p>
 </li>
-<li><p>支持 TypeScript</p>
+<li><p>Vue在Github的欢迎度</p>
 </li>
-<li></li>
+</ol>
+<p><img src="GithubStar.jpg" alt="GithubStar"> </p>
+<ol start="3">
+<li><p>不需要操作Dom，实现了MVVM</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// jquery的操作</span></span><br><span class="line">$(<span class="string">"#test3"</span>).<span class="keyword">val</span>(<span class="string">"Dolly Duck"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Vue的操作</span></span><br><span class="line">MVVM，实现了双向绑定</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>学习成本低，文档浅显易懂</p>
+</li>
 </ol>
 <h3 id="Vue-建项目"><a href="#Vue-建项目" class="headerlink" title="Vue 建项目"></a>Vue 建项目</h3><ol>
 <li><p>Vue 提供了一个官方的 CLI，为单页面应用 (SPA) 快速搭建繁杂的脚手架。基于Vue cli项目脚手架，网址：<a href="https://cli.vuejs.org/zh/guide/" target="_blank" rel="noopener">https://cli.vuejs.org/zh/guide/</a></p>
@@ -233,7 +248,41 @@
 <li><p><strong>钩子方法:</strong> 模板方法的执行结果，该方法就叫做钩子方法，个人理解：影响了模板的执行，把函数勾住了，这个方法就是钩子函数。</p>
 </li>
 </ul>
-<h3 id="Vue-常用指令-结合项目中的代码讲解"><a href="#Vue-常用指令-结合项目中的代码讲解" class="headerlink" title="Vue 常用指令(结合项目中的代码讲解)"></a>Vue 常用指令(结合项目中的代码讲解)</h3><ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">钩子函数</th>
+<th style="text-align:center">解释 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">beforeCreate</td>
+<td style="text-align:center">实例初始化自动调用</td>
+</tr>
+<tr>
+<td style="text-align:center">created</td>
+<td style="text-align:center">实例创建后调用</td>
+</tr>
+<tr>
+<td style="text-align:center">beforeMounte</td>
+<td style="text-align:center">在mount之前运行,元素已经加载，但是属性值没渲染</td>
+</tr>
+<tr>
+<td style="text-align:center">mounted</td>
+<td style="text-align:center">并挂载到实例上去之后调用该钩子</td>
+</tr>
+<tr>
+<td style="text-align:center">beforeDestroy</td>
+<td style="text-align:center">在开始销毁实例时调用</td>
+</tr>
+<tr>
+<td style="text-align:center">destroyed</td>
+<td style="text-align:center">在实例销毁后调用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Vue-常用指令"><a href="#Vue-常用指令" class="headerlink" title="Vue 常用指令"></a>Vue 常用指令</h3><ul>
 <li><p><strong>声明式渲染</strong></p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"app"</span>&gt;</span><br><span class="line">  &#123;&#123; message &#125;&#125;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">data</span>: &#123;</span><br><span class="line">    <span class="attribute">message</span>: <span class="string">'Hello Vue!'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -255,7 +304,7 @@
 <figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Original message: "</span><span class="template-variable">&#123;&#123; message &#125;&#125;</span><span class="xml">"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Computed reversed message: "</span><span class="template-variable">&#123;&#123; reversedMessage &#125;&#125;</span><span class="xml">"<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var <span class="keyword">vm</span> = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="keyword">e</span><span class="variable">l:</span> <span class="string">'#example'</span>,</span><br><span class="line">  dat<span class="variable">a:</span> &#123;</span><br><span class="line">    message: <span class="string">'Hello'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    // 计算属性的 getter</span><br><span class="line">    reversedMessage: <span class="function"><span class="keyword">function</span> <span class="params">()</span> &#123;</span></span><br><span class="line">      // `this` 指向 <span class="keyword">vm</span> 实例</span><br><span class="line">      <span class="keyword">return</span> this.message.<span class="keyword">split</span>(<span class="string">''</span>).<span class="built_in">reverse</span>().<span class="keyword">join</span>(<span class="string">''</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  method<span class="variable">s:</span> &#123;</span><br><span class="line">    // 方法</span><br><span class="line">    reversedMessage: <span class="function"><span class="keyword">function</span> <span class="params">()</span> &#123;</span></span><br><span class="line">    <span class="keyword">return</span> this.message.<span class="keyword">split</span>(<span class="string">''</span>).<span class="built_in">reverse</span>().<span class="keyword">join</span>(<span class="string">''</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>数据变化，还有一个watch可以使用</strong></p>
+<li><p><strong>数据变化，watch</strong></p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#demo'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    firstName: <span class="string">'Foo'</span>,</span><br><span class="line">    lastName: <span class="string">'Bar'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="comment">// 当两个值变化时，将会触发此函数</span></span><br><span class="line">    fullName: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>表单输入绑定</strong></p>
@@ -276,7 +325,61 @@
 <blockquote>
 <p>在学习完以上知识以后，将能使用Vue做出简单的页面运用</p>
 </blockquote>
-
+<ul>
+<li><p><strong>扩展</strong>：TypeScript、Vue组件间传值、Mock、Vuex、调试、JavaScript的同步异步,作用域、ES6、部署、虚拟DOM、Http的get和post等。</p>
+</li>
+<li><p><strong>梭哈</strong> <a href="https://www.iviewui.com/components/table" target="_blank" rel="noopener">UI:iview</a>、<a href="http://mpvue.com/" target="_blank" rel="noopener">小程序：mpvue</a>，<a href="https://muse-ui.org/#/zh-CN/list" target="_blank" rel="noopener">移动端：muse-ui</a> 前端啥都能做。</p>
+<h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2></li>
+</ul>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Spring Boot 是所有基于 Spring 开发的项目的。Spring Boot 的设计是为了让你尽可能快的跑起来 Spring 应用程序并且尽可能减少你的配置文件。</p>
+<h3 id="使用Spring-Boot开发单个RESTful服务"><a href="#使用Spring-Boot开发单个RESTful服务" class="headerlink" title="使用Spring Boot开发单个RESTful服务"></a>使用Spring Boot开发单个RESTful服务</h3><p>由于网上资源众多，就不详细编写创建步骤了。这里找了一个网上的教程，大家可以按这个步骤去创建一个项目，能用浏览器能访问就行。SpringBoot新建HelloWorld工程： <a href="https://blog.csdn.net/small_mouse0/article/details/77800737" target="_blank" rel="noopener">https://blog.csdn.net/small_mouse0/article/details/77800737</a></p>
+<h3 id="RESTful风格"><a href="#RESTful风格" class="headerlink" title="RESTful风格"></a>RESTful风格</h3><p>Rest是web服务的一种架构风格，一种设计风格，URL只指定资源，以HTTP方法动词进行不同的操作。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （查询用户） </span><br><span class="line">POST http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （新增用户） </span><br><span class="line">PUT http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （更新用户） </span><br><span class="line">DELETE http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （删除用户）</span><br></pre></td></tr></table></figure>
+<p>Restful好处:</p>
+<ul>
+<li>URL具有很强可读性的，具有自描述性</li>
+<li>规范化请求过程和返回结果</li>
+<li>资源描述与视图的松耦合</li>
+<li>可提供OpenAPI，便于第三方系统集成，提高互操作性</li>
+<li>提供无状态的服务接口，降低复杂度，可提高应用的水平扩展性</li>
+</ul>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><p><strong>spring ioc容器:</strong>，主要用来管理对象和依赖，以及依赖的注入</p>
+</li>
+<li><p><strong>依赖注入:</strong>不用new，让Spring控制new过程</p>
+</li>
+<li><p><strong>控制反转:</strong>不是用new方式实例化对象,实质的控制权已经交由程序管理</p>
+</li>
+</ul>
+<h3 id="Bean"><a href="#Bean" class="headerlink" title="Bean"></a>Bean</h3><p>  bean是一个对象，由ioc容器生成的对象就是一个bean</p>
+<h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><ol>
+<li><p>@SpringBootApplication</p>
+<p>@SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan 简化程序的配置。</p>
+</li>
+<li><p><strong>@Configuration</strong></p>
+<p>注解在类上，表示这是一个IOC容器，相当于spring的配置文件，IOC容器的配置类。</p>
+</li>
+<li><p><strong>@ComponentScan</strong></p>
+<p>如果扫描到有@Component @Controller @Service等这些注解的类，则把这些类注册为bean。@Controller, @Service, @Repository是@Component的细化，这三个注解比@Component带有更多的语义，它们分别对应了控制层、服务层、持久层的类。</p>
+</li>
+<li><p><strong>@RestController</strong> </p>
+<p>告诉Spring以JSON字符串的形式渲染结果，并直接返回给调用者。</p>
+</li>
+<li><p><strong>@RequestMapping</strong> </p>
+<p>告诉Spring这是一个用来处理请求地址映射的注解。</p>
+</li>
+<li><p><strong>@Autowired</strong></p>
+<p>可以对类成员变量、方法及构造函数进行标注。从IoC容器中去查找，并自动装配。（去除@Autowired可以运行一下试试）</p>
+</li>
+<li><p>Mybatis的<strong>@Mapper</strong> </p>
+<p>注解的接口生成一个实现类</p>
+</li>
+</ol>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p>  浏览器从一个域名的网页去请求另一个域名的资源时，域名、端口、协议任一不同，都是跨域。</p>
+<p>  跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行的Web应用被准许访问来自不同源服务器上的指定的资源。</p>
+<h3 id="Spring-Boot和-Spring-Cloud的关系"><a href="#Spring-Boot和-Spring-Cloud的关系" class="headerlink" title="Spring Boot和 Spring Cloud的关系"></a>Spring Boot和 Spring Cloud的关系</h3><p>  基于Spring Boot 快速开发单个微服务，Spring Cloud是一个基于Spring Boot实现的开发工具；Spring Boot专注于快速、方便集成的单个微服务个体，Spring Cloud关注全局的服务治理框架；Spring Boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>  统一异常处理、RabbitMQ、JWT、Redis、定时任务、@Async异步、log4j记录日志、Spring Security进行安全控制、WebSocket</p>
+<h2 id="Spring-Cloud-介绍"><a href="#Spring-Cloud-介绍" class="headerlink" title="Spring Cloud 介绍"></a>Spring Cloud 介绍</h2>
 
                 <hr>
 
@@ -285,7 +388,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2019/01/23/linq/" data-toggle="tooltip" data-placement="top" title="Lambda 的记录">&larr; Previous Post</a>
+                            <a href="/2019/01/23/WAR/" data-toggle="tooltip" data-placement="top" title="部署Spring Boot 的war包到Tomcat服务器">&larr; Previous Post</a>
                         </li>
                     
                     
@@ -331,9 +434,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Vue" title="Vue">Vue</a>
-                        
                           <a class="tag" href="/tags/#Spring Boot" title="Spring Boot">Spring Boot</a>
+                        
+                          <a class="tag" href="/tags/#Vue" title="Vue">Vue</a>
                         
                     </div>
                 </section>
