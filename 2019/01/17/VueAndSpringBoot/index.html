@@ -90,14 +90,14 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -226,12 +226,14 @@
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> vue-hello-world</span><br><span class="line"></span><br><span class="line">yarn serve</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>默认情况下，在 浏览器访问 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 将能看到如下界面：</p>
+<p><img src="vue.png" alt="vue"> </p>
 </li>
 </ol>
-<p><img src="vue.png" alt="vue"> </p>
 <h3 id="Vue-相关结构和生命周期介绍"><a href="#Vue-相关结构和生命周期介绍" class="headerlink" title="Vue 相关结构和生命周期介绍"></a>Vue 相关结构和生命周期介绍</h3><ul>
-<li><p>目录结构如下图：</p>
-</li>
+<li>目录结构如下图：</li>
+</ul>
+<p><img src="vue-cli3.0.png" alt="vue-cli3.0"> </p>
+<ul>
 <li><p>单个.vue文件的组成部介绍</p>
   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--html--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript"><span class="comment">//js</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="comment">/* css style */</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -328,21 +330,12 @@
 <ul>
 <li><p><strong>扩展</strong>：TypeScript、Vue组件间传值、Mock、Vuex、调试、JavaScript的同步异步,作用域、ES6、部署、虚拟DOM、Http的get和post等。</p>
 </li>
-<li><p><strong>梭哈</strong> <a href="https://www.iviewui.com/components/table" target="_blank" rel="noopener">UI:iview</a>、<a href="http://mpvue.com/" target="_blank" rel="noopener">小程序：mpvue</a>，<a href="https://muse-ui.org/#/zh-CN/list" target="_blank" rel="noopener">移动端：muse-ui</a> 前端啥都能做。</p>
+<li><p><strong>梭哈</strong> <a href="https://www.iviewui.com/components/table" target="_blank" rel="noopener">UI:iview</a>、<a href="http://mpvue.com/" target="_blank" rel="noopener">小程序：mpvue</a>，<a href="https://muse-ui.org/#/zh-CN/list" target="_blank" rel="noopener">移动端：muse-ui</a>，<a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">桌面端：Electron + Vue</a> 前端啥都能做。</p>
 <h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2></li>
 </ul>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Spring Boot 是所有基于 Spring 开发的项目的。Spring Boot 的设计是为了让你尽可能快的跑起来 Spring 应用程序并且尽可能减少你的配置文件。</p>
 <h3 id="使用Spring-Boot开发单个RESTful服务"><a href="#使用Spring-Boot开发单个RESTful服务" class="headerlink" title="使用Spring Boot开发单个RESTful服务"></a>使用Spring Boot开发单个RESTful服务</h3><p>由于网上资源众多，就不详细编写创建步骤了。这里找了一个网上的教程，大家可以按这个步骤去创建一个项目，能用浏览器能访问就行。SpringBoot新建HelloWorld工程： <a href="https://blog.csdn.net/small_mouse0/article/details/77800737" target="_blank" rel="noopener">https://blog.csdn.net/small_mouse0/article/details/77800737</a></p>
-<h3 id="RESTful风格"><a href="#RESTful风格" class="headerlink" title="RESTful风格"></a>RESTful风格</h3><p>Rest是web服务的一种架构风格，一种设计风格，URL只指定资源，以HTTP方法动词进行不同的操作。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （查询用户） </span><br><span class="line">POST http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （新增用户） </span><br><span class="line">PUT http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （更新用户） </span><br><span class="line">DELETE http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （删除用户）</span><br></pre></td></tr></table></figure>
-<p>Restful好处:</p>
-<ul>
-<li>URL具有很强可读性的，具有自描述性</li>
-<li>规范化请求过程和返回结果</li>
-<li>资源描述与视图的松耦合</li>
-<li>可提供OpenAPI，便于第三方系统集成，提高互操作性</li>
-<li>提供无状态的服务接口，降低复杂度，可提高应用的水平扩展性</li>
-</ul>
+<h3 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h3><p><img src="SpringBootCli.png" alt="SpringBootCli"></p>
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
 <li><p><strong>spring ioc容器:</strong>，主要用来管理对象和依赖，以及依赖的注入</p>
 </li>
@@ -352,6 +345,7 @@
 </li>
 </ul>
 <h3 id="Bean"><a href="#Bean" class="headerlink" title="Bean"></a>Bean</h3><p>  bean是一个对象，由ioc容器生成的对象就是一个bean</p>
+<h3 id="对比Spring"><a href="#对比Spring" class="headerlink" title="对比Spring"></a>对比Spring</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yiibai.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Person person;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.person = person;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPerson</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.person = person;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><ol>
 <li><p>@SpringBootApplication</p>
 <p>@SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan 简化程序的配置。</p>
@@ -377,9 +371,21 @@
 </ol>
 <h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p>  浏览器从一个域名的网页去请求另一个域名的资源时，域名、端口、协议任一不同，都是跨域。</p>
 <p>  跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行的Web应用被准许访问来自不同源服务器上的指定的资源。</p>
+<h3 id="RESTful风格"><a href="#RESTful风格" class="headerlink" title="RESTful风格"></a>RESTful风格</h3><p>Rest是web服务的一种架构风格，一种设计风格，URL只指定资源，以HTTP方法动词进行不同的操作。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （查询用户） </span><br><span class="line">POST http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （新增用户） </span><br><span class="line">PUT http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （更新用户） </span><br><span class="line">DELETE http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （删除用户）</span><br></pre></td></tr></table></figure>
+<p>Restful好处:</p>
+<ul>
+<li>URL具有很强可读性的，具有自描述性</li>
+<li>规范化请求过程和返回结果</li>
+<li>资源描述与视图的松耦合</li>
+<li>可提供OpenAPI，便于第三方系统集成，提高互操作性</li>
+<li>提供无状态的服务接口，降低复杂度，可提高应用的水平扩展性</li>
+</ul>
 <h3 id="Spring-Boot和-Spring-Cloud的关系"><a href="#Spring-Boot和-Spring-Cloud的关系" class="headerlink" title="Spring Boot和 Spring Cloud的关系"></a>Spring Boot和 Spring Cloud的关系</h3><p>  基于Spring Boot 快速开发单个微服务，Spring Cloud是一个基于Spring Boot实现的开发工具；Spring Boot专注于快速、方便集成的单个微服务个体，Spring Cloud关注全局的服务治理框架；Spring Boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。</p>
 <h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>  统一异常处理、RabbitMQ、JWT、Redis、定时任务、@Async异步、log4j记录日志、Spring Security进行安全控制、WebSocket</p>
-<h2 id="Spring-Cloud-介绍"><a href="#Spring-Cloud-介绍" class="headerlink" title="Spring Cloud 介绍"></a>Spring Cloud 介绍</h2>
+<h2 id="Spring-Cloud-介绍"><a href="#Spring-Cloud-介绍" class="headerlink" title="Spring Cloud 介绍"></a>Spring Cloud 介绍</h2><p><img src="duobbo@Spring.png" alt="duobboAndSpringCloud">  </p>
+<p><img src="duobbo-admin.png" alt="duobbo-admin">  </p>
+
 
                 <hr>
 

@@ -13,11 +13,11 @@
 
     <title>
         
-          线程和进程 - 梁小生 | Blog
+          spring boot 使用 swagger 404 - 梁小生 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liangwei.com/2019/01/08/Thread/">
+    <link rel="canonical" href="http://www.liangwei.com/2019/01/24/swagger/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('psb.jpg')
+        background-image: url('../../../../../img/article_bg.jpg')
     }
 </style>
 <header class="intro-header">
@@ -165,14 +165,18 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#线程" title="线程">线程</a>
+                          <a class="tag" href="/tags/#swagger2" title="swagger2">swagger2</a>
+                        
+                          <a class="tag" href="/tags/#Spring boot" title="Spring boot">Spring boot</a>
+                        
+                          <a class="tag" href="/tags/#CORS" title="CORS">CORS</a>
                         
                     </div>
-                    <h1>线程和进程</h1>
+                    <h1>spring boot 使用 swagger 404</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 梁小生 on
-                        2019-01-08
+                        2019-01-24
                     </span>
                 </div>
             </div>
@@ -191,48 +195,21 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><ul>
-<li><p>狭义定义：进程就是一段程序的执行过程(一个程序)。</p>
-</li>
-<li><p>广义定义：进程是一个具有一定独立功能的程序关于某个数据集合的一次运行活动。它是操作系统动态执行的基本单元，在传统的操作系统中，进程既是基本的分配单元，也是基本的执行单元。</p>
-</li>
-<li><p>进程是一个实体。每一个进程都有它自己的地址空间，一般情况下，包括文本区域（text region）、数据区域（data region）和堆栈（stack region）。文本区域存储处理器执行的代码；数据区域存储变量和进程执行期间使用的动态分配的内存；堆栈区域存储着活动过程调用的指令和本地变量</p>
-</li>
-<li><p>进程是一个“执行中的程序”。程序是一个没有生命的实体，只有处理器赋予程序生命时，它才能成为一个活动的实体，我们称其为进程。</p>
-</li>
-<li><p><strong>进程状态：</strong> 进程有三个状态:就绪、运行和阻塞。</p>
-<pre><code>就绪状态:是获取了除cpu外的所有资源，只要处理器分配资源就可以马上执行。
-就绪状态:有排队序列什么的，排队原则不再赘述。
-运行态:是获得了处理器分配的资源，程序开始执行。
-阻塞态:当程序条件不够时候，需要等待条件满足时候才能执行，如等待i/o操作时候，此刻的状态就叫阻塞态。
-</code></pre></li>
-<li><p>状态图</p>
-</li>
-</ul>
-<p><img src="Thread.jpg" alt="avatar">        </p>
-<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><ul>
-<li><p>通常在一个进程中可以包含若干个线程，当然一个进程中至少有一个线程，不然没有存在的意义。线程可以利用进程所拥有的资源，在引入线程的操作系统中，通常都是把进程作为分配资源的基本单位，而把线程作为独立运行和独立调度的基本单位，由于线程比进程更小，基本上不拥有系统资源，故对它的调度所付出的开销就会小得多，能更高效的提高系统多个程序间并发执行的程度。</p>
-</li>
-<li><p>Thread.sleep 意味着线程主动告诉操作系统自己要休息 n 毫秒。</p>
-</li>
-</ul>
-<ol>
-<li><p>Thread.sleep(0) 进入就绪状态</p>
-</li>
-<li><p>如果n=0时，意味着当前线程的时间片没有用完，主动放弃自己剩下的时间片，进入就绪状态。这种情况下只能调度优先级相等或更高的线程，意味着优先级低的线程很难获得时间片，很可能永远都调用不到。当没有符合条件的线程，会一直占用 CPU 时间片，造成 CPU 100%占用率。</p>
-</li>
-<li><p>如果n&gt;0，会强制当前线程放弃剩余时间片，并休息n秒（因为不是实时操作系统，时间无法保证精确，一般可能会滞后几毫秒或一个时间片），进入阻塞状态。这种情况下所有其它就绪状态的线程都有机会竞争时间片，而不用在乎优先级。无论有没有符合的线程，都会放弃 CPU 时间，因此 CPU 占用率较低。</p>
-</li>
+                <h2 id="配置使用"><a href="#配置使用" class="headerlink" title="配置使用"></a>配置使用</h2><ol>
+<li>在pom.xml 增加如下内容</li>
 </ol>
-<h2 id="进程与线程的区别"><a href="#进程与线程的区别" class="headerlink" title="进程与线程的区别"></a>进程与线程的区别</h2><p>进程和线程的主要差别在于它们是不同的操作系统资源管理方式。进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程</p>
-<ol>
-<li><p>简而言之,一个程序至少有一个进程,一个进程至少有一个线程.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.springfox<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p>建立一个SwaggerConfig配置类</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Configuration</span></span><br><span class="line"><span class="variable">@EnableSwagger2</span></span><br><span class="line">public class SwaggerConfig &#123;</span><br><span class="line">    <span class="variable">@Bean</span></span><br><span class="line">    public Docket api() &#123;</span><br><span class="line">        <span class="selector-tag">return</span> <span class="selector-tag">new</span> <span class="selector-tag">Docket</span>(DocumentationType.SWAGGER_2)</span><br><span class="line">                <span class="selector-class">.apiInfo</span>(apiInfo())</span><br><span class="line">                <span class="selector-class">.select</span>()</span><br><span class="line">                <span class="selector-class">.apis</span>(RequestHandlerSelectors.any())</span><br><span class="line">                <span class="selector-class">.paths</span>(PathSelectors.any())</span><br><span class="line">                <span class="selector-class">.build</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="selector-tag">private</span> <span class="selector-tag">ApiInfo</span> <span class="selector-tag">apiInfo</span>() &#123;</span><br><span class="line">        <span class="selector-tag">return</span> <span class="selector-tag">new</span> <span class="selector-tag">ApiInfoBuilder</span>()</span><br><span class="line">                <span class="selector-class">.title</span>(<span class="string">"Spring Boot中使用Swagger2构建RESTful APIs"</span>)</span><br><span class="line">                <span class="selector-class">.description</span>(<span class="string">"图书子系统"</span>)</span><br><span class="line">                <span class="selector-class">.termsOfServiceUrl</span>(<span class="string">"更多请关注http://www.baidu.com"</span>)</span><br><span class="line">                <span class="selector-class">.contact</span>(<span class="string">"liangwei"</span>)</span><br><span class="line">                <span class="selector-class">.version</span>(<span class="string">"1.0"</span>)</span><br><span class="line">                <span class="selector-class">.build</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>线程的划分尺度小于进程，使得多线程程序的并发性高.</p>
+<li><p><strong>错误原因</strong>：因为WebApiConfig继承的类和 Swagger设置的类冲突了，重置了系统的bean</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">public class WebApiConfig extends WebMvcConfigurationSupport &#123;</span><br><span class="line"> </span><br><span class="line">    @Override</span><br><span class="line">    public void addCorsMappings(CorsRegistry registry) &#123;</span><br><span class="line">        registry.addMapping(<span class="string">"/**"</span>)</span><br><span class="line">                .allowedOrigins(<span class="string">"*"</span>)</span><br><span class="line">                .allowedMethods(<span class="string">"<span class="keyword">GET</span>"</span>, <span class="string">"<span class="keyword">POST</span>"</span>, <span class="string">"<span class="keyword">PUT</span>"</span>, <span class="string">"<span class="keyword">OPTIONS</span>"</span>, <span class="string">"<span class="keyword">DELETE</span>"</span>, <span class="string">"<span class="keyword">PATCH</span>"</span>)</span><br><span class="line">                .allowCredentials(true).maxAge(<span class="number">3600</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率.</p>
+<li><p>Swagger和CORS一起使用的解决办法</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@AutoConfigureAfter(DispatcherServletAutoConfiguration.class)</span><br><span class="line">public class WebConfiguration extends WebMvcConfigurationSupport &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">        registry.addResourceHandler(<span class="string">"/**"</span>).addResourceLocations(<span class="string">"classpath:/static/"</span>);</span><br><span class="line">        registry.addResourceHandler(<span class="string">"swagger-ui.html"</span>)</span><br><span class="line">                .addResourceLocations(<span class="string">"classpath:/META-INF/resources/"</span>);</span><br><span class="line">        registry.addResourceHandler(<span class="string">"/webjars/**"</span>)</span><br><span class="line">                .addResourceLocations(<span class="string">"classpath:/META-INF/resources/webjars/"</span>);</span><br><span class="line">        super.addResourceHandlers(registry);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * CROS跨域的处理</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    public void addCorsMappings(CorsRegistry registry) &#123;</span><br><span class="line">        registry.addMapping(<span class="string">"/**"</span>)</span><br><span class="line">                .allowedOrigins(<span class="string">"*"</span>)</span><br><span class="line">                .allowedMethods(<span class="string">"<span class="keyword">GET</span>"</span>, <span class="string">"<span class="keyword">POST</span>"</span>, <span class="string">"<span class="keyword">PUT</span>"</span>, <span class="string">"<span class="keyword">OPTIONS</span>"</span>, <span class="string">"<span class="keyword">DELETE</span>"</span>, <span class="string">"<span class="keyword">PATCH</span>"</span>)</span><br><span class="line">                .allowCredentials(true).maxAge(<span class="number">3600</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>程在执行过程中与进程还是有区别的。每个独立的线程有一个程序运行的入口、顺序执行序列和程序的出口。但是线程不能够独立执行，必须依存在应用程序中，由应用程序提供多个线程执行控制</p>
+<li><p>访问的时候，本地<a href="http://localhost+" target="_blank" rel="noopener">http://localhost+</a> 端口的访问方式是可以的。但是在打包成war到服务器上时，却不行。是因为war的访问方式是要：ip+ 端口+ war包名+ swagger-ui.html </p>
 </li>
 </ol>
 
@@ -243,13 +220,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2019/01/10/JavaMemoryModel/" data-toggle="tooltip" data-placement="top" title="JAVA的内存模型">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2019/01/07/OOP/" data-toggle="tooltip" data-placement="top" title="抽象类和接口">Next Post &rarr;</a>
+                            <a href="/2019/01/23/linq/" data-toggle="tooltip" data-placement="top" title="Lambda 的记录">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -260,20 +233,6 @@
 
             </div>
     <!-- Side Catalog Container -->
-        
-            <div class="
-                col-lg-2 col-lg-offset-0
-                visible-lg-block
-                sidebar-container
-                catalog-container">
-                <div class="side-catalog">
-                    <hr class="hidden-sm hidden-xs">
-                    <h5>
-                        <a class="catalog-toggle" href="#">CATALOG</a>
-                    </h5>
-                    <ul class="catalog-body"></ul>
-                </div>
-            </div>
         
 
     <!-- Sidebar Container -->
@@ -290,7 +249,11 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#线程" title="线程">线程</a>
+                          <a class="tag" href="/tags/#swagger2" title="swagger2">swagger2</a>
+                        
+                          <a class="tag" href="/tags/#Spring boot" title="Spring boot">Spring boot</a>
+                        
+                          <a class="tag" href="/tags/#CORS" title="CORS">CORS</a>
                         
                     </div>
                 </section>
@@ -503,50 +466,6 @@
 
 
 <!-- Side Catalog -->
-
-<script type="text/javascript">
-    function generateCatalog (selector) {
-        var P = $('div.post-container'),a,n,t,l,i,c;
-        a = P.find('h1,h2,h3,h4,h5,h6');
-        a.each(function () {
-            n = $(this).prop('tagName').toLowerCase();
-            i = "#"+$(this).prop('id');
-            t = $(this).text();
-            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
-            l = $('<li class="'+n+'_nav"></li>').append(c);
-            $(selector).append(l);
-        });
-        return true;    
-    }
-
-    generateCatalog(".catalog-body");
-
-    // toggle side catalog
-    $(".catalog-toggle").click((function(e){
-        e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
-    }))
-
-    /*
-     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
-     * Fork by Hux to support padding
-     */
-    async("/js/jquery.nav.js", function () {
-        $('.catalog-body').onePageNav({
-            currentClass: "active",
-            changeHash: !1,
-            easing: "swing",
-            filter: "",
-            scrollSpeed: 700,
-            scrollOffset: 0,
-            scrollThreshold: .2,
-            begin: null,
-            end: null,
-            scrollChange: null,
-            padding: 80
-        });
-    });
-</script>
 
 
 
