@@ -90,6 +90,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
                         
@@ -98,13 +105,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -202,7 +202,10 @@
 <li><p>前后端分离会为以后的大型分布式架构、弹性计算架构、微服务架构、多端化服务（多种客户端，例如：浏览器，安卓，IOS等等）打下坚实的基础。</p>
 </li>
 </ul>
-<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><h3 id="Vue介绍"><a href="#Vue介绍" class="headerlink" title="Vue介绍"></a>Vue介绍</h3><ol>
+<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><p>在讲Vue之前，需要大概了解下 HTML、CSS、JS是什么？</p>
+<p>HTML是标签的；CSS是写样式的；JS是给网页增加动态效果</p>
+<p><a href="http://www.runoob.com/html/html-tutorial.html" target="_blank" rel="noopener">HTML</a>、<a href="http://www.w3school.com.cn/css/index.asp" target="_blank" rel="noopener">CSS</a>、<a href="http://www.w3school.com.cn/js/index.asp" target="_blank" rel="noopener">JavaScript</a></p>
+<h3 id="Vue介绍"><a href="#Vue介绍" class="headerlink" title="Vue介绍"></a>Vue介绍</h3><ol>
 <li><p>Vue是一套用于构建用户界面的渐进式框架，网址：<a href="https://cn.vuejs.org/" target="_blank" rel="noopener">https://cn.vuejs.org/</a></p>
 </li>
 <li><p>Vue在Github的欢迎度</p>
@@ -330,12 +333,55 @@
 <ul>
 <li><p><strong>扩展</strong>：TypeScript、Vue组件间传值、Mock、Vuex、调试、JavaScript的同步异步,作用域、ES6、部署、虚拟DOM、Http的get和post等。</p>
 </li>
-<li><p><strong>梭哈</strong> <a href="https://www.iviewui.com/components/table" target="_blank" rel="noopener">UI:iview</a>、<a href="http://mpvue.com/" target="_blank" rel="noopener">小程序：mpvue</a>，<a href="https://muse-ui.org/#/zh-CN/list" target="_blank" rel="noopener">移动端：muse-ui</a>，<a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">桌面端：Electron + Vue</a> 前端啥都能做。</p>
+<li><p><strong>梭哈</strong> <a href="https://www.iviewui.com/components/table" target="_blank" rel="noopener">PC端:iview</a>、<a href="http://mpvue.com/" target="_blank" rel="noopener">小程序：mpvue</a>，<a href="https://muse-ui.org/#/zh-CN/list" target="_blank" rel="noopener">移动端：muse-ui</a>，<a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">桌面端：Electron + Vue</a> JS走天下。</p>
 <h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2></li>
 </ul>
+<p>在讲Spring Boot之前，需要大概了解下Java的一些相关</p>
+<ul>
+<li><p>语法层面和 C# 差不多，这里略过</p>
+</li>
+<li><p>Java的工作原理<br><img src="java.jpg" alt="java"></p>
+</li>
+<li><p>JVM 虚拟机<br><img src="jvm.png" alt="jvm"></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">区域</th>
+<th style="text-align:center">解释 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">堆(heap)</td>
+<td style="text-align:center">由所有线程共享；new的对象的实例。</td>
+</tr>
+<tr>
+<td style="text-align:center">虚拟机栈(Stack)</td>
+<td style="text-align:center">每个线程拥有独立的栈；存放局部变量、对象引用。被调方法结束后，对应栈区变量等立即销毁</td>
+</tr>
+<tr>
+<td style="text-align:center">静态/方法区</td>
+<td style="text-align:center">方法区包含所有的class信息和static变量</td>
+</tr>
+</tbody>
+</table>
 <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Spring Boot 是所有基于 Spring 开发的项目的。Spring Boot 的设计是为了让你尽可能快的跑起来 Spring 应用程序并且尽可能减少你的配置文件。</p>
 <h3 id="使用Spring-Boot开发单个RESTful服务"><a href="#使用Spring-Boot开发单个RESTful服务" class="headerlink" title="使用Spring Boot开发单个RESTful服务"></a>使用Spring Boot开发单个RESTful服务</h3><p>由于网上资源众多，就不详细编写创建步骤了。这里找了一个网上的教程，大家可以按这个步骤去创建一个项目，能用浏览器能访问就行。SpringBoot新建HelloWorld工程： <a href="https://blog.csdn.net/small_mouse0/article/details/77800737" target="_blank" rel="noopener">https://blog.csdn.net/small_mouse0/article/details/77800737</a></p>
 <h3 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h3><p><img src="SpringBootCli.png" alt="SpringBootCli"></p>
+<h3 id="和前端交互"><a href="#和前端交互" class="headerlink" title="和前端交互"></a>和前端交互</h3><ol>
+<li><p>前端的Http请求会到controller这一层，而controller层根据相应路由信息注解会跳转到相应的类。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如： /api/user 的get请求将会被 UserQry() 函数处理</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping(<span class="meta-string">"/api"</span>)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@RequestMapping(value =<span class="meta-string">"/user"</span>, method = RequestMethod.GET)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;User&gt; UserQry() &#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUser();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在框架经过处理以后，最终调用的是mapper层。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">Select</span>(<span class="string">"select * from user"</span>)</span><br><span class="line"><span class="keyword">List</span>&lt;<span class="keyword">User</span>&gt; getUser();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在执行相应的Sql以后，将会依次返回到controller层，然后在Http的返回中将会以Json串对象返回给前端的调用方。</p>
+</li>
+<li><p>前端在Http的response中拿到返回的值，然后再进行一些处理。</p>
+</li>
+</ol>
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
 <li><p><strong>spring ioc容器:</strong>，主要用来管理对象和依赖，以及依赖的注入</p>
 </li>
@@ -345,7 +391,9 @@
 </li>
 </ul>
 <h3 id="Bean"><a href="#Bean" class="headerlink" title="Bean"></a>Bean</h3><p>  bean是一个对象，由ioc容器生成的对象就是一个bean</p>
-<h3 id="对比Spring"><a href="#对比Spring" class="headerlink" title="对比Spring"></a>对比Spring</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yiibai.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Person person;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.person = person;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPerson</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.person = person;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置VS注解"><a href="#配置VS注解" class="headerlink" title="配置VS注解"></a>配置VS注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Spring 的操作</span></span><br><span class="line"><span class="keyword">package</span> com.yiibai.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Person person;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.person = person;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPerson</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.person = person;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.yiibai.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Spring 的配置Bean的xml</span></span><br><span class="line">&lt;bean id=<span class="string">"customer"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"com.yiibai.common.Customer"</span>&gt;</span><br><span class="line">  &lt;property name=<span class="string">"person"</span> ref=<span class="string">"person"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/bean&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;bean id="person" class="com.yiibai.common.Person" /</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Spring 的注解方式</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> Person person;</span><br></pre></td></tr></table></figure>
 <h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><ol>
 <li><p>@SpringBootApplication</p>
 <p>@SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan 简化程序的配置。</p>
@@ -381,7 +429,7 @@
 <li>可提供OpenAPI，便于第三方系统集成，提高互操作性</li>
 <li>提供无状态的服务接口，降低复杂度，可提高应用的水平扩展性</li>
 </ul>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>  统一异常处理、JWT、Redis、定时任务、WebSocket</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>  JAVA的内存模型（非线程安全）、统一异常处理、JWT、Redis、定时任务、WebSocket、单点登录</p>
 <h3 id="Spring-Boot和-Spring-Cloud的关系"><a href="#Spring-Boot和-Spring-Cloud的关系" class="headerlink" title="Spring Boot和 Spring Cloud的关系"></a>Spring Boot和 Spring Cloud的关系</h3><p>  基于Spring Boot 快速开发单个微服务，Spring Cloud是一个基于Spring Boot实现的开发工具；Spring Boot专注于快速、方便集成的单个微服务个体，Spring Cloud关注全局的服务治理框架；Spring Boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。</p>
 <h2 id="Spring-Cloud-介绍"><a href="#Spring-Cloud-介绍" class="headerlink" title="Spring Cloud 介绍"></a>Spring Cloud 介绍</h2><p><img src="duobbo@Spring.png" alt="duobboAndSpringCloud">  </p>
 <p><img src="duobbo-admin.png" alt="duobbo-admin">  </p>
