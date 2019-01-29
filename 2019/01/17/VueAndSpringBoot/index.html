@@ -90,7 +90,7 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -104,7 +104,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
@@ -193,7 +193,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="Spring-Boot-And-Vue"><a href="#Spring-Boot-And-Vue" class="headerlink" title="Spring-Boot-And-Vue"></a>Spring-Boot-And-Vue</h1><h2 id="记一次Spring-Boot-和Vue的前后端分离培训"><a href="#记一次Spring-Boot-和Vue的前后端分离培训" class="headerlink" title="记一次Spring Boot 和Vue的前后端分离培训"></a>记一次Spring Boot 和Vue的前后端分离培训</h2><p>环境：<br>  <em>MySql: 14.14</em><br>  <em>Node.js V10.15.0</em><br>  <em>Vue.js V2.5.21</em><br>  <em>yar: V1.13.0</em><br>  <em>jdk: 1.8</em><br>  <em>Win10企业版</em><br>  <em>IDE:VScode &amp; IDEA</em></p>
+                <h1 id="Spring-Boot-And-Vue"><a href="#Spring-Boot-And-Vue" class="headerlink" title="Spring-Boot-And-Vue"></a>Spring-Boot-And-Vue</h1><h2 id="记一次Spring-Boot-和Vue的前后端分离培训"><a href="#记一次Spring-Boot-和Vue的前后端分离培训" class="headerlink" title="记一次Spring Boot 和Vue的前后端分离培训"></a>记一次Spring Boot 和Vue的前后端分离培训</h2><p>环境：<br>  <em>MySql: 14.14</em><br>  <em>Node.js V10.15.0</em><br>  <em>Vue.js V2.5.21</em><br>  <em>yar: V1.13.0</em><br>  <em>Maven: 3.52</em><br>  <em>jdk: 1.8</em><br>  <em>Win10企业版</em><br>  <em>IDE:VScode &amp; IDEA</em></p>
 <h2 id="前后端分离-服务端渲染、浏览器渲染"><a href="#前后端分离-服务端渲染、浏览器渲染" class="headerlink" title="前后端分离(服务端渲染、浏览器渲染)"></a>前后端分离(服务端渲染、浏览器渲染)</h2><ul>
 <li><p>实现真正的前后端解耦。</p>
 </li>
@@ -431,7 +431,19 @@
 </ul>
 <h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>  JAVA的内存模型（非线程安全）、Linq、JWT、Redis、WebSocket、单点登录(SSO)、</p>
 <h3 id="Spring-Boot和-Spring-Cloud的关系"><a href="#Spring-Boot和-Spring-Cloud的关系" class="headerlink" title="Spring Boot和 Spring Cloud的关系"></a>Spring Boot和 Spring Cloud的关系</h3><p>  基于Spring Boot 快速开发单个微服务，Spring Cloud是一个基于Spring Boot实现的开发工具；Spring Boot专注于快速、方便集成的单个微服务个体，Spring Cloud关注全局的服务治理框架；Spring Boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。</p>
-<h2 id="Spring-Cloud-和-Dubbo-介绍"><a href="#Spring-Cloud-和-Dubbo-介绍" class="headerlink" title="Spring Cloud 和 Dubbo 介绍"></a>Spring Cloud 和 Dubbo 介绍</h2><p><img src="duobbo@Spring.png" alt="duobboAndSpringCloud">  </p>
+<h2 id="Spring-Cloud-和-Dubbo-对比"><a href="#Spring-Cloud-和-Dubbo-对比" class="headerlink" title="Spring Cloud 和 Dubbo 对比"></a>Spring Cloud 和 Dubbo 对比</h2><p><img src="duobbo@Spring.png" alt="duobboAndSpringCloud"> </p>
+<ul>
+<li><p><strong>Dubbo的RPC 调用流程</strong> </p>
+<ol>
+<li><p>生产者发布服务到服务注册中心中</p>
+</li>
+<li><p>消费者在服务注册中心中订阅服务</p>
+</li>
+<li><p>消费者调用已经注册的服务</p>
+</li>
+</ol>
+</li>
+</ul>
 <h2 id="分布式的基础套件介绍"><a href="#分布式的基础套件介绍" class="headerlink" title="分布式的基础套件介绍"></a>分布式的基础套件介绍</h2><p><img src="cloud.png" alt="cloud"> </p>
 <ul>
 <li><p><strong>eureka、zokeeper</strong> 服务注册和发现模块，服务注册在服务中心，提供给消费者使用。</p>
