@@ -97,14 +97,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -193,7 +193,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="Spring-Boot-And-Vue"><a href="#Spring-Boot-And-Vue" class="headerlink" title="Spring-Boot-And-Vue"></a>Spring-Boot-And-Vue</h1><h2 id="记一次Spring-Boot-和Vue的前后端分离培训"><a href="#记一次Spring-Boot-和Vue的前后端分离培训" class="headerlink" title="记一次Spring Boot 和Vue的前后端分离培训"></a>记一次Spring Boot 和Vue的前后端分离培训</h2><p>环境：<br>  <em>MySql: 14.14</em><br>  <em>Node.js V10.15.0</em><br>  <em>Vue.js V2.5.21</em><br>  <em>yarn: V1.13.0</em><br>  <em>Maven: 3.52</em><br>  <em>jdk: 1.8</em><br>  <em>Win10企业版</em><br>  <em>IDE:VScode &amp; IDEA</em></p>
+                <h1 id="Spring-Boot-And-Vue"><a href="#Spring-Boot-And-Vue" class="headerlink" title="Spring-Boot-And-Vue"></a>Spring-Boot-And-Vue</h1><h2 id="记一次Spring-Boot-和Vue的前后端分离培训"><a href="#记一次Spring-Boot-和Vue的前后端分离培训" class="headerlink" title="记一次Spring Boot 和Vue的前后端分离培训"></a>记一次Spring Boot 和Vue的前后端分离培训</h2><p>前端工具和环境：<br>  <em>Node.js V10.15.0</em><br>  <em>Vue.js V2.5.21</em><br>  <em>yarn: V1.13.0</em><br>  <em>IDE:VScode</em></p>
+<p>后端工具和环境：<br>  <em>Maven: 3.52</em><br>  <em>jdk: 1.8</em><br>  <em>MySql: 14.14</em><br>  <em>IDE: IDEA</em><br>  <em>Spring Boot: 2.0+</em><br>  <em>Zookeeper：3.4.13</em></p>
 <h2 id="前后端分离-服务端渲染、浏览器渲染"><a href="#前后端分离-服务端渲染、浏览器渲染" class="headerlink" title="前后端分离(服务端渲染、浏览器渲染)"></a>前后端分离(服务端渲染、浏览器渲染)</h2><ul>
 <li><p>实现真正的前后端解耦。</p>
 </li>
@@ -331,7 +332,7 @@
 <p>在学习完以上知识以后，将能使用Vue做出简单的页面运用</p>
 </blockquote>
 <ul>
-<li><p><strong>扩展</strong>：TypeScript、Vue组件间传值、Mock、Vuex、调试、JavaScript的同步异步,作用域、ES6、部署(优化、部署在静态服务器上)、虚拟DOM、Http的get和post等。</p>
+<li><p><strong>扩展</strong>：TypeScript、Vue组件间传值、Mock、Vuex、调试、JavaScript的同步异步,作用域、ES6、部署(优化、部署在静态服务器上、node中间层)、虚拟DOM、Http的get和post等。</p>
 </li>
 <li><p><strong>梭哈</strong> <a href="https://www.iviewui.com/components/page" target="_blank" rel="noopener">PC端:iview</a>、<a href="http://mpvue.com/" target="_blank" rel="noopener">小程序：mpvue</a>，<a href="https://muse-ui.org/#/zh-CN/list" target="_blank" rel="noopener">移动端：muse-ui</a>，<a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">桌面端：Electron + Vue</a> JS走天下。</p>
 <h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2></li>
@@ -420,7 +421,7 @@
 <h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p>  浏览器从一个域名的网页去请求另一个域名的资源时，域名、端口、协议任一不同，都是跨域。</p>
 <p>  跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行的Web应用被准许访问来自不同源服务器上的指定的资源。</p>
 <h3 id="RESTful风格"><a href="#RESTful风格" class="headerlink" title="RESTful风格"></a>RESTful风格</h3><p>Rest是web服务的一种架构风格，一种设计风格，URL只指定资源，以HTTP方法动词进行不同的操作。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （查询用户） </span><br><span class="line">POST http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （新增用户） </span><br><span class="line">PUT http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （更新用户） </span><br><span class="line">DELETE http:<span class="regexp">//</span>localhost:<span class="number">8080</span><span class="regexp">/api/u</span>sers （删除用户）</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非RESTful接口</span></span><br><span class="line">api/getfile<span class="selector-class">.php</span> - 获取文件信息，下载文件</span><br><span class="line">api/uploadfile<span class="selector-class">.php</span> - 上传创建文件</span><br><span class="line">api/deletefile<span class="selector-class">.php</span> - 删除文件</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只需要api/users这一个接口</span></span><br><span class="line">GET http:<span class="comment">//localhost:8080/api/users （查询用户） </span></span><br><span class="line">POST http:<span class="comment">//localhost:8080/api/users （新增用户） </span></span><br><span class="line">PUT http:<span class="comment">//localhost:8080/api/users （更新用户） </span></span><br><span class="line">DELETE http:<span class="comment">//localhost:8080/api/users （删除用户）</span></span><br></pre></td></tr></table></figure>
 <p>Restful好处:</p>
 <ul>
 <li>URL具有很强可读性的，具有自描述性</li>
@@ -432,8 +433,8 @@
 <h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>  JAVA的内存模型（非线程安全）、Linq、JWT、Redis、WebSocket、单点登录(SSO)、消息队列</p>
 <h3 id="Spring-Cloud的分布式"><a href="#Spring-Cloud的分布式" class="headerlink" title="Spring Cloud的分布式"></a>Spring Cloud的分布式</h3><p>  其实在上面我们做的一个Spring Boot小的demo就是一个模块。若干个小的Spring Boot的模块，合在一起。使用一些分布式的套件，将模块集群化，让模块之间联系和管理起来，其实就是Spring Cloud的基本的微服务。  </p>
 <h3 id="Spring-Boot和-Spring-Cloud的关系"><a href="#Spring-Boot和-Spring-Cloud的关系" class="headerlink" title="Spring Boot和 Spring Cloud的关系"></a>Spring Boot和 Spring Cloud的关系</h3><p>  基于Spring Boot 快速开发单个微服务，Spring Cloud是一个基于Spring Boot实现的开发工具；Spring Boot专注于快速、方便集成的单个微服务个体，Spring Cloud关注全局的服务治理框架；Spring Boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。    </p>
-<h2 id="Dubbo的方式写模块"><a href="#Dubbo的方式写模块" class="headerlink" title="Dubbo的方式写模块"></a>Dubbo的方式写模块</h2><p>Dubbo 是一款高性能Java RPC框架,地址：<a href="http://dubbo.apache.org/zh-cn/" target="_blank" rel="noopener">http://dubbo.apache.org/zh-cn/</a> </p>
-<h3 id="Dubbo的RPC-的思想"><a href="#Dubbo的RPC-的思想" class="headerlink" title="Dubbo的RPC 的思想"></a><strong>Dubbo的RPC 的思想</strong></h3><p>  <img src="architecture.png" alt="architecture"></p>
+<h2 id="Dubbo"><a href="#Dubbo" class="headerlink" title="Dubbo"></a>Dubbo</h2><p>Dubbo 是一款高性能Java RPC框架,地址：<a href="http://dubbo.apache.org/zh-cn/" target="_blank" rel="noopener">http://dubbo.apache.org/zh-cn/</a> </p>
+<h3 id="Dubbo的微服务的一些概念"><a href="#Dubbo的微服务的一些概念" class="headerlink" title="Dubbo的微服务的一些概念"></a><strong>Dubbo的微服务的一些概念</strong></h3><p>  <img src="architecture.png" alt="architecture"></p>
 <ol>
 <li><p>生产者发布服务到服务注册中心中</p>
 </li>
@@ -442,7 +443,7 @@
 <li><p>消费者调用已经注册的服务</p>
 </li>
 </ol>
-<h3 id="Dubbo的节点实现"><a href="#Dubbo的节点实现" class="headerlink" title="Dubbo的节点实现"></a><strong>Dubbo的节点实现</strong></h3><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义服务接口标准</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DemoService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">String</span> sayHello(<span class="keyword">String</span> name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Dubbo的实现单个微服务"><a href="#Dubbo的实现单个微服务" class="headerlink" title="Dubbo的实现单个微服务"></a><strong>Dubbo的实现单个微服务</strong></h3><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义服务接口标准</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DemoService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">String</span> sayHello(<span class="keyword">String</span> name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生产者项目引用并实现</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoServiceImpl</span> <span class="keyword">implements</span> <span class="title">DemoService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + name + <span class="string">" (from Spring Boot)"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 消费者引用然后调用</span></span><br><span class="line"><span class="variable">@RestController</span></span><br><span class="line">public class DemoConsumerController &#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable">@Reference</span></span><br><span class="line">  private DemoService demoService;</span><br><span class="line"></span><br><span class="line">  <span class="variable">@RequestMapping</span>(<span class="string">"/sayHello/&#123;name&#125;"</span>)</span><br><span class="line">  public String sayHello(<span class="variable">@PathVariable</span>(<span class="string">"name"</span>) String name) &#123;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-tag">demoService</span><span class="selector-class">.sayHello</span>(name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="分布式的基础套件介绍"><a href="#分布式的基础套件介绍" class="headerlink" title="分布式的基础套件介绍"></a>分布式的基础套件介绍</h3><p><img src="cloud.png" alt="cloud"> </p>
