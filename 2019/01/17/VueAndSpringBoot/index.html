@@ -332,7 +332,7 @@
 <p>在学习完以上知识以后，将能使用Vue做出简单的页面运用</p>
 </blockquote>
 <ul>
-<li><p><strong>扩展</strong>：TypeScript、Vue组件间传值、Mock、Vuex、调试、JavaScript的同步异步,作用域、ES6、部署(优化、部署在静态服务器上、node中间层)、虚拟DOM、Http的get和post等。</p>
+<li><p><strong>扩展</strong>：TypeScript、Vue组件间传值、Mock、Vuex、调试、JavaScript的同步异步,作用域、ES6、部署(打包、优化、部署在静态服务器上、node中间层)、虚拟DOM、Http的get和post等。</p>
 </li>
 <li><p><strong>梭哈</strong> <a href="https://www.iviewui.com/components/page" target="_blank" rel="noopener">PC端:iview</a>、<a href="http://mpvue.com/" target="_blank" rel="noopener">小程序：mpvue</a>，<a href="https://muse-ui.org/#/zh-CN/list" target="_blank" rel="noopener">移动端：muse-ui</a>，<a href="https://github.com/SimulatedGREG/electron-vue" target="_blank" rel="noopener">桌面端：Electron + Vue</a> JS走天下。</p>
 <h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2></li>
@@ -390,6 +390,8 @@
 </li>
 <li><p><strong>控制反转:</strong>不是用new方式实例化对象,实质的控制权已经交由程序管理</p>
 </li>
+<li><p><strong>面向切面：</strong>把一些功能抽离出来，再通过“动态织入”的方式掺入到业务中</p>
+</li>
 </ul>
 <h3 id="Bean"><a href="#Bean" class="headerlink" title="Bean"></a>Bean</h3><p>  bean是一个对象，由ioc容器生成的对象就是一个bean</p>
 <h3 id="配置VS注解"><a href="#配置VS注解" class="headerlink" title="配置VS注解"></a>配置VS注解</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Spring 的操作</span></span><br><span class="line"><span class="keyword">package</span> com.yiibai.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Person person;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.person = person;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPerson</span><span class="params">(Person person)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.person = person;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.yiibai.common;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -430,8 +432,8 @@
 <li>可提供OpenAPI，便于第三方系统集成，提高互操作性</li>
 <li>提供无状态的服务接口，降低复杂度，可提高应用的水平扩展性</li>
 </ul>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>  JAVA的内存模型（非线程安全）、Linq、JWT、Redis、WebSocket、单点登录(SSO)、消息队列</p>
-<h3 id="Spring-Cloud的分布式"><a href="#Spring-Cloud的分布式" class="headerlink" title="Spring Cloud的分布式"></a>Spring Cloud的分布式</h3><p>  其实在上面我们做的一个Spring Boot小的demo就是一个模块。若干个小的Spring Boot的模块，合在一起。使用一些分布式的套件，将模块集群化，让模块之间联系和管理起来，其实就是Spring Cloud的基本的微服务。  </p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>  JAVA的内存模型（<a href="https://liangwei0101.github.io/2019/01/10/JavaMemoryModel" target="_blank" rel="noopener">非线程安全</a>）、Linq、JWT、Redis、WebSocket、单点登录(SSO)、消息队列</p>
+<h3 id="Spring-Cloud的分布式"><a href="#Spring-Cloud的分布式" class="headerlink" title="Spring Cloud的分布式"></a>Spring Cloud的分布式</h3><p>  其实在上面我们做的一个Spring Boot小的demo就是一个服务。若干个小的Spring Boot的模块，合在一起。使用一些分布式的套件，将模块集群化，让模块之间联系和管理起来，其实就是Spring Cloud的基本的微服务。  </p>
 <h3 id="Spring-Boot和-Spring-Cloud的关系"><a href="#Spring-Boot和-Spring-Cloud的关系" class="headerlink" title="Spring Boot和 Spring Cloud的关系"></a>Spring Boot和 Spring Cloud的关系</h3><p>  基于Spring Boot 快速开发单个微服务，Spring Cloud是一个基于Spring Boot实现的开发工具；Spring Boot专注于快速、方便集成的单个微服务个体，Spring Cloud关注全局的服务治理框架；Spring Boot可以离开Spring Cloud独立使用开发项目，但是Spring Cloud离不开Spring Boot，属于依赖的关系。    </p>
 <h2 id="Dubbo"><a href="#Dubbo" class="headerlink" title="Dubbo"></a>Dubbo</h2><p>Dubbo 是一款高性能Java RPC框架,地址：<a href="http://dubbo.apache.org/zh-cn/" target="_blank" rel="noopener">http://dubbo.apache.org/zh-cn/</a> </p>
 <h3 id="Dubbo的微服务的一些概念"><a href="#Dubbo的微服务的一些概念" class="headerlink" title="Dubbo的微服务的一些概念"></a><strong>Dubbo的微服务的一些概念</strong></h3><p>  <img src="architecture.png" alt="architecture"></p>
@@ -446,13 +448,14 @@
 <h3 id="Dubbo的实现单个微服务"><a href="#Dubbo的实现单个微服务" class="headerlink" title="Dubbo的实现单个微服务"></a><strong>Dubbo的实现单个微服务</strong></h3><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义服务接口标准</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">DemoService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">String</span> sayHello(<span class="keyword">String</span> name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 生产者项目引用并实现</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoServiceImpl</span> <span class="keyword">implements</span> <span class="title">DemoService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello, "</span> + name + <span class="string">" (from Spring Boot)"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 消费者引用然后调用</span></span><br><span class="line"><span class="variable">@RestController</span></span><br><span class="line">public class DemoConsumerController &#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable">@Reference</span></span><br><span class="line">  private DemoService demoService;</span><br><span class="line"></span><br><span class="line">  <span class="variable">@RequestMapping</span>(<span class="string">"/sayHello/&#123;name&#125;"</span>)</span><br><span class="line">  public String sayHello(<span class="variable">@PathVariable</span>(<span class="string">"name"</span>) String name) &#123;</span><br><span class="line">    <span class="selector-tag">return</span> <span class="selector-tag">demoService</span><span class="selector-class">.sayHello</span>(name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Dubbo监控和接口展示"><a href="#Dubbo监控和接口展示" class="headerlink" title="Dubbo监控和接口展示"></a>Dubbo监控和接口展示</h3><p><img src="Dubbo ops.png" alt="Dubbo ops.png"> </p>
 <h3 id="分布式的基础套件介绍"><a href="#分布式的基础套件介绍" class="headerlink" title="分布式的基础套件介绍"></a>分布式的基础套件介绍</h3><p><img src="cloud.png" alt="cloud"> </p>
 <ul>
 <li><p><strong>eureka、zookeeper</strong> 服务注册和发现模块，服务注册在服务中心，提供给消费者使用。</p>
 </li>
 <li><p><strong>Hystrix</strong> 断路器。为了保证其高可用，单个服务通常会集群部署。如果单个服务出现问题，调用这个服务就会出现线程阻塞，此时若有大量的请求涌入，Servlet容器的线程资源会被消耗完毕，导致服务瘫痪。服务与服务之间的依赖性，故障会传播，会对整个微服务系统造成灾难性的严重后果。</p>
 </li>
-<li><p><strong>zuul</strong> 路由网关。Zuul的主要功能是路由转发和过滤器。比如／api/user转发到到user服务，/api/shop转发到到shop服务</p>
+<li><p><strong>zuul</strong> 路由网关。Zuul的主要功能是路由转发和过滤器。比如/api/user转发到到user服务，/api/shop转发到到shop服务</p>
 </li>
 <li><p><strong>Spring Cloud Config</strong> 在服务数量巨多时，为了方便服务配置文件统一管理，实时更新，需要分布式配置中心组件。</p>
 </li>
@@ -472,7 +475,7 @@
 <li>服务依赖方式</li>
 </ul>
 <p>Dubbo：服务提供方与消费方通过接口的方式依赖，因此需要为每个微服务定义了各自的 Interface接口，并通过持续集成发布到私有仓库中，调用方应用对微服务提供的抽象接口存在强依赖关系，开发、测试、集成环境都需要严格的管理版本依赖。</p>
-<p>Spring Cloud：服务提供方和服务消费方通过 JSON 方式交互，因此只需要定义好相关 JSON 字段即可，消费方和提供方无接口依赖。通过注解方式来实现服务配置，对于程序有一定入侵。</p>
+<p>Spring Cloud：服务提供方和服务消费方通过 JSON 方式交互，因此只需要定义好相关 JSON 字段即可，消费方和提供方无接口依赖。</p>
 
 
                 <hr>
