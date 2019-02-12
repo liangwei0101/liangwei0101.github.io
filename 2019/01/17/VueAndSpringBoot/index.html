@@ -193,9 +193,11 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="Spring-Boot-And-Vue"><a href="#Spring-Boot-And-Vue" class="headerlink" title="Spring-Boot-And-Vue"></a>Spring-Boot-And-Vue</h1><h2 id="记一次Spring-Boot-和Vue的前后端分离培训"><a href="#记一次Spring-Boot-和Vue的前后端分离培训" class="headerlink" title="记一次Spring Boot 和Vue的前后端分离培训"></a>记一次Spring Boot 和Vue的前后端分离培训</h2><p>前端工具和环境：<br>  <em>Node.js V10.15.0</em><br>  <em>Vue.js V2.5.21</em><br>  <em>yarn: V1.13.0</em><br>  <em>IDE:VScode</em></p>
+                <h1 id="Spring-Boot-And-Vue"><a href="#Spring-Boot-And-Vue" class="headerlink" title="Spring-Boot-And-Vue"></a>Spring-Boot-And-Vue</h1><h2 id="记一次Spring-Boot-和Vue的前后端分离培训"><a href="#记一次Spring-Boot-和Vue的前后端分离培训" class="headerlink" title="记一次Spring Boot 和Vue的前后端分离培训"></a>记一次Spring Boot 和Vue的前后端分离培训</h2><p>由于公司之前是写C#的，现在要转 Java分布式 + vue,所以进行一次前后端的简单培训。 </p>
+<p>前端工具和环境：<br>  <em>Node.js V10.15.0</em><br>  <em>Vue.js V2.5.21</em><br>  <em>yarn: V1.13.0</em><br>  <em>IDE:VScode</em></p>
 <p>后端工具和环境：<br>  <em>Maven: 3.52</em><br>  <em>jdk: 1.8</em><br>  <em>MySql: 14.14</em><br>  <em>IDE: IDEA</em><br>  <em>Spring Boot: 2.0+</em><br>  <em>Zookeeper：3.4.13</em></p>
-<p>demo 地址：<a href="http://101.132.124.171:8000/about" target="_blank" rel="noopener">http://101.132.124.171:8000/about</a><br>Spring Boot + Vue 代码地址：<a href="https://github.com/liangwei0101/Spring-Boot-And-Vue.git" target="_blank" rel="noopener">https://github.com/liangwei0101/Spring-Boot-And-Vue.git</a><br><img src="demo.png" alt="demo"> </p>
+<p>demo 地址：<a href="http://101.132.124.171:8000/about" target="_blank" rel="noopener">http://101.132.124.171:8000/about</a></p>
+<p>Spring Boot + Vue 代码地址：<a href="https://github.com/liangwei0101/Spring-Boot-And-Vue.git" target="_blank" rel="noopener">https://github.com/liangwei0101/Spring-Boot-And-Vue.git</a><br><img src="demo.png" alt="demo"> </p>
 <h2 id="前后端分离-服务端渲染、浏览器渲染"><a href="#前后端分离-服务端渲染、浏览器渲染" class="headerlink" title="前后端分离(服务端渲染、浏览器渲染)"></a>前后端分离(服务端渲染、浏览器渲染)</h2><ul>
 <li><p>实现真正的前后端解耦。</p>
 </li>
@@ -377,8 +379,11 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如： /api/user 的get请求将会被 UserQry() 函数处理</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@RequestMapping(<span class="meta-string">"/api"</span>)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@RequestMapping(value =<span class="meta-string">"/user"</span>, method = RequestMethod.GET)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;User&gt; UserQry() &#123;</span><br><span class="line">        <span class="keyword">return</span> userService.getUser();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在框架经过处理以后，最终调用的是mapper层。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">Select</span>(<span class="string">"select * from user"</span>)</span><br><span class="line"><span class="keyword">List</span>&lt;<span class="keyword">User</span>&gt; getUser();</span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<p><img src="mysql.png" alt="mysql"> </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">Select</span>(<span class="string">"select * from user"</span>)</span><br><span class="line"><span class="keyword">List</span>&lt;<span class="keyword">User</span>&gt; getUser();</span><br></pre></td></tr></table></figure>
+<ol start="3">
 <li><p>在执行相应的Sql以后，将会依次返回到controller层，然后在Http的返回中将会以Json串对象返回给前端的调用方。</p>
 </li>
 <li><p>前端在Http的response中拿到返回的值，然后再进行一些处理。</p>
