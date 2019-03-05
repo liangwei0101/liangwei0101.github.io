@@ -13,11 +13,11 @@
 
     <title>
         
-          Lambda 的记录 - 梁小生 | Blog
+          C# 中的 AutoResetEvent关键字 - 梁小生 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liangwei.com/2019/01/23/linq/">
+    <link rel="canonical" href="http://www.liangwei.com/2019/03/05/AutoResetEvent/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -155,7 +155,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('psb.jpg')
+        background-image: url('../../../../../img/article_bg.jpg')
     }
 </style>
 <header class="intro-header">
@@ -167,18 +167,18 @@
                         
                           <a class="tag" href="/tags/#C#" title="C#">C#</a>
                         
-                          <a class="tag" href="/tags/#Linq" title="Linq">Linq</a>
+                          <a class="tag" href="/tags/#多线程" title="多线程">多线程</a>
                         
-                          <a class="tag" href="/tags/#lamdba" title="lamdba">lamdba</a>
+                          <a class="tag" href="/tags/#高并发" title="高并发">高并发</a>
                         
-                          <a class="tag" href="/tags/#JAVA" title="JAVA">JAVA</a>
+                          <a class="tag" href="/tags/#通知" title="通知">通知</a>
                         
                     </div>
-                    <h1>Lambda 的记录</h1>
+                    <h1>C# 中的 AutoResetEvent关键字</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 梁小生 on
-                        2019-01-23
+                        2019-03-05
                     </span>
                 </div>
             </div>
@@ -197,40 +197,25 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="Java中的Lambda的使用"><a href="#Java中的Lambda的使用" class="headerlink" title="Java中的Lambda的使用"></a>Java中的Lambda的使用</h2><ul>
-<li><p><strong>filter</strong>返回序列中满足条件的元素集合</p>
-<pre><code>// 从集合中返回Name等于&quot;liang&quot;的集合
-List&lt;User&gt; userListOrderBy= userList.stream().filter((User u) -&gt; u.getName() == &quot;liang&quot;).collect(Collectors.toList());
-</code></pre></li>
-<li><p><strong>sort</strong> 集合排序</p>
-<pre><code>// 将集合已No字段升序排序，若是要降序 user2.getNo() - user1.getNo() 即可
-Collections.sort(userList,(user1, user2) -&gt; user1.getNo() - user2.getNo());
-</code></pre></li>
+                <h1 id="C-中的-AutoResetEvent-关键字"><a href="#C-中的-AutoResetEvent-关键字" class="headerlink" title="C# 中的 AutoResetEvent 关键字"></a>C# 中的 AutoResetEvent 关键字</h1><p>在工作的任务中，需要对客户端和服务端 通信包进行落地。把这个做成通用的模块，在高并发和多线程下，也能够工作。</p>
+<p>在查阅了大众化日志方案后，决定采用：写日志和写文件分离的方式进行。大概内容图：</p>
+<p><img src="log.png" alt="log"> </p>
+<p>需要记录是通信包，<strong>将需要记录的通信包推送到队列，再由一个专门的线程去读取队列，将出队列的数据写到文件中</strong>。这样将每次直接IO瓶颈，转化成存储队列的大小，瓶颈变成了内存的大小。上代码：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 扫描队列，写文件的线程</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> Thread LogThread;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义线程安全的Queue</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> ConcurrentQueue&lt;Message&gt; LogQueue; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 多线程下，操作统一资源的锁</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">object</span> SyncRoot;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在队列没有数据时，线程停止扫描标志</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> AutoResetEvent AutoReset = <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="keyword">static</span> Utils()</span><br><span class="line">&#123;</span><br><span class="line">   AutoReset = <span class="keyword">new</span> <span class="type">AutoResetEvent</span>(<span class="literal">false</span>);</span><br><span class="line">   SyncRoot = <span class="keyword">new</span> <span class="type">object</span>();</span><br><span class="line">   LogThread = <span class="keyword">new</span> <span class="type">Thread</span>(WriteLog);</span><br><span class="line">   LogQueue = <span class="keyword">new</span> <span class="type">ConcurrentQueue</span>&lt;Message&gt;();</span><br><span class="line">   LogThread.Start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 记录日志</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Log</span>(<span class="params">List&lt;Message&gt; msg</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> msg)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="comment">// 队列入队</span></span><br><span class="line">      LogQueue.Enqueue(item);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">// 激活扫描停止的线程（发出信号）</span></span><br><span class="line">   AutoReset.Set();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写入日志</span></span><br><span class="line"><span class="keyword">private</span> static void WriteLog()</span><br><span class="line">&#123;</span><br><span class="line">   var <span class="built_in">list</span> = new <span class="built_in">List</span>&lt;Message&gt;();</span><br><span class="line">   <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">   &#123;</span><br><span class="line">   	  <span class="comment">// 如果队列中有数据</span></span><br><span class="line">      <span class="keyword">if</span> (LogQueue.<span class="built_in">Count</span>() &gt; <span class="number">0</span>)</span><br><span class="line">      &#123;</span><br><span class="line">         IT2ESBMessage <span class="variable">_msg</span>;</span><br><span class="line">         <span class="comment">// 出队列</span></span><br><span class="line">         LogQueue.TryDequeue(out <span class="variable">_msg</span>);</span><br><span class="line">         <span class="keyword">if</span> (<span class="variable">_msg</span>!=null)</span><br><span class="line">         &#123;</span><br><span class="line">            <span class="built_in">list</span>.Add(<span class="variable">_msg</span>);</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">      &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="built_in">list</span>.<span class="built_in">Count</span>&gt;<span class="number">0</span>)</span><br><span class="line">          &#123;</span><br><span class="line">          	  <span class="comment">// 加锁，在多线程操作的时候，保证安全</span></span><br><span class="line">              <span class="built_in">lock</span> (SyncRoot)</span><br><span class="line">              &#123;</span><br><span class="line">                  <span class="keyword">foreach</span> (var item <span class="built_in">in</span> <span class="built_in">list</span>)</span><br><span class="line">                  &#123;</span><br><span class="line">                      ProcessWriteLog(item); </span><br><span class="line">                   &#125;    </span><br><span class="line">               &#125;</span><br><span class="line">               ist.Clear();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 在这里,线程会被暂停,直到收到信号;</span></span><br><span class="line">            AutoReset.WaitOne();</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写文件</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> ProcessWriteLog(Message msg)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">try</span></span><br><span class="line">   &#123;</span><br><span class="line">      FileStream fs;</span><br><span class="line">      fs = <span class="keyword">new</span> FileStream(_fileName, FileMode.<span class="keyword">Append</span>, FileAccess.<span class="keyword">Write</span>);</span><br><span class="line">      <span class="comment">//TODO，进行对文件的写     </span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">catch</span> (Exception ex)</span><br><span class="line">   &#123;</span><br><span class="line">      Debug.<span class="keyword">WriteLine</span>(string.Format(<span class="string">"写入日志失败，原因:&#123;0&#125;"</span>, ex.Message));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>AutoResetEvent</strong> 关键字</p>
+<ul>
+<li><p>Reset ()：将事件状态设置为非终止状态，导致线程阻止；</p>
+</li>
+<li><p>Set ()：发送信号到等待线程以继续其工作；</p>
+</li>
 </ul>
-<h2 id="C-中常用Lambda和Linq结合"><a href="#C-中常用Lambda和Linq结合" class="headerlink" title="C# 中常用Lambda和Linq结合"></a>C# 中常用Lambda和Linq结合</h2><ul>
-<li><p>C# <strong>FirstOrDefault()</strong>，返回序列中满足条件的第一个元素；如果未找到这样的元素，则返回null</p>
-<pre><code>// 从集合中返回Value为&quot;1&quot;, IconKey
-var obij = FuncCache.FirstOrDefault(p =&gt; p.Value == &quot;1&quot; &amp;&amp; p.IconKey == &quot;2&quot;);
-</code></pre></li>
-<li><p>C# <strong>Where()</strong>，从集合中挑出符合条件的多个项</p>
-<pre><code>// 将BranchNoOption集合中的EnableStatus字段为&apos;1&apos;的集合挑选出来
-BranchNoOption = new ObservableCollection&lt;F120061_Info&gt;(BranchNoOption.Where(p =&gt; p.EnableStatus == &apos;1&apos;));
-</code></pre></li>
-<li><p>C# <strong>OrderBy()、OrderByDescending()</strong>，将集合按某个字段进行升序或者降序排序</p>
-<pre><code>// 将workFlowDtoList集合按AuditLevel字段升序排序
-workFlowDtoList = new List&lt;WorkFlowDto&gt;(workFlowDtoList.OrderBy(s =&gt; s.AuditLevel));
-</code></pre></li>
-<li><p>C# <strong>GroupBy()</strong>，集合元素分组</p>
-<pre><code>// studentGroup 为按studentList按ClassName分类好的集合
-var studentGroup = studentList.GroupBy(s =&gt; s.ClassName);
-</code></pre></li>
-<li><p>C# <strong>Select()</strong>，挑选出集合中的字段的值变成一个：挑选出字段的新集合</p>
-<pre><code>// branchNoList 为按F360576_InfoList挑选出的所有BranchNo集合
-var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
-</code></pre></li>
-<li><p>C# <strong>中Where扩展</strong></p>
-  <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 挑选出集合中名称不为1或者2的</span></span><br><span class="line"></span><br><span class="line">public void <span class="keyword">Test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span>  testList = new ObservableCollection&lt;MyClass&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; 1000; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="keyword">test</span> = new MyClass();</span><br><span class="line">        <span class="keyword">test</span>.Name = i.<span class="keyword">ToString</span>();</span><br><span class="line">        <span class="keyword">test</span>.Value = i.<span class="keyword">ToString</span>();</span><br><span class="line">        testList.Add(<span class="keyword">test</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> listTemp = testList.Where(s =&gt; !<span class="string">"1,2"</span>.Contains(s.Name)).ToList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<p>有点类似于计算机中的信号量，回顾《操作系统》中的信号量吧，什么银行家算法，什么信号量已经忘得一干二净了。</p>
+<p><strong>信号量</strong> 用在多线程多任务同步的，一个线程完成了某一个动作就通过信号量告诉别的线程，别的线程再进行某些动作。</p>
+<p><strong>互斥锁</strong> 是用在多线程多任务互斥的，一个线程占用了某一个资源，那么别的线程就无法访问，直到这个线程unlock，其他的线程才开始可以利用这个资源</p>
 
 
                 <hr>
@@ -239,13 +224,9 @@ var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2019/01/24/swagger/" data-toggle="tooltip" data-placement="top" title="spring boot 使用 swagger 404">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2019/01/23/WAR/" data-toggle="tooltip" data-placement="top" title="部署Spring Boot 的war包到Tomcat服务器">Next Post &rarr;</a>
+                            <a href="/2019/02/22/reconstruction/" data-toggle="tooltip" data-placement="top" title="小议码重构">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -274,11 +255,11 @@ var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
                        
                           <a class="tag" href="/tags/#C#" title="C#">C#</a>
                         
-                          <a class="tag" href="/tags/#Linq" title="Linq">Linq</a>
+                          <a class="tag" href="/tags/#多线程" title="多线程">多线程</a>
                         
-                          <a class="tag" href="/tags/#lamdba" title="lamdba">lamdba</a>
+                          <a class="tag" href="/tags/#高并发" title="高并发">高并发</a>
                         
-                          <a class="tag" href="/tags/#JAVA" title="JAVA">JAVA</a>
+                          <a class="tag" href="/tags/#通知" title="通知">通知</a>
                         
                     </div>
                 </section>
