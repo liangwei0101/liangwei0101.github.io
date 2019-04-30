@@ -13,11 +13,11 @@
 
     <title>
         
-          梁小生 | Blog
+          gc - 梁小生 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liangwei.com/tags/多线程/">
+    <link rel="canonical" href="http://www.liangwei.com/2019/04/18/gc/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -140,7 +140,194 @@
 
 
     <!-- Main Content -->
-    <!-- Default Archive layout, we use archives instead. -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liangwei.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/index.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>gc</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 梁小生 on
+                        2019-04-18
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="GC垃圾回收"><a href="#GC垃圾回收" class="headerlink" title="GC垃圾回收"></a>GC垃圾回收</h1><p>因为最近接触了JAVA和C#相关编程，这里对比一下JVM和CLR的垃圾回收机制。</p>
+<ol>
+<li>CLR和JVM之间的最大相似之处包括：</li>
+</ol>
+<ul>
+<li><p>都是虚拟机（VM）</p>
+</li>
+<li><p>都包括垃圾收集</p>
+</li>
+<li><p>都采用基于堆栈的操作</p>
+</li>
+<li><p>都包括运行时级安全性</p>
+</li>
+<li><p>都有异常处理方法</p>
+</li>
+</ul>
+<ol start="2">
+<li>CLR和JVM之间的主要区别包括：</li>
+</ol>
+<ul>
+<li><p>CLR被设计为与语言无关，JVM被设计为特定于Java</p>
+</li>
+<li><p>CLR最初只与Windows兼容，JVM适用于所有主要操作系统</p>
+</li>
+<li><p>CLR使用JIT编译器，JVM使用称为Java HotSpot的专用JIT编译器</p>
+</li>
+<li><p>CLR包含有关闭包，协同程序和指针声明/操作的指令，而JVM则没有</p>
+</li>
+<li><p>JVM兼容更强大的错误解决方案和生产监控工具</p>
+</li>
+</ul>
+<ol start="3">
+<li>什么是虚拟机？</li>
+</ol>
+<ul>
+<li>公共语言运行时（CLR）和Java虚拟机（JVM）都是进程虚拟机。这意味着它们不是执行整个操作系统，而是专门设计用于运行流程或程序而不依赖于平台环境。</li>
+</ul>
+<ol start="4">
+<li>CLR与JVM的相似之处</li>
+</ol>
+<ul>
+<li>CLR和JVM都是虚拟机，它们都执行与平台无关的操作，即执行已编译的源代码。从本质上讲，这些虚拟机既可以作为程序员源代码和系统机器代码之间的中间步骤，也可以通过各种类型的处理器实现更高的可用性。在下图中，您可以看到两者的高级功能实际上是如何相同的。</li>
+</ul>
+<p><img src="https://www.javacodegeeks.com/wp-content/uploads/2018/01/diagram1-1.png.webp" alt="7层模型">  </p>
+<ul>
+<li>虚拟机的垃圾回收机制很像</li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/04/16/webImportant/" data-toggle="tooltip" data-placement="top" title="webImportant">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://github.com/liangwei0101" target="_blank">github 梁伟</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
 
     <!-- Footer -->
     <!-- Footer -->

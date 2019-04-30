@@ -13,11 +13,11 @@
 
     <title>
         
-          梁小生 | Blog
+          PromisesAndFuture - 梁小生 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liangwei.com/page/2/">
+    <link rel="canonical" href="http://www.liangwei.com/2019/03/08/PromisesAndFuture/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -140,339 +140,118 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/index.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liangwei.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/index.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>梁小生 Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">个人博客</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>PromisesAndFuture</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 梁小生 on
+                        2019-03-08
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        
-
-<!-- USE SIDEBAR -->
     <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-            
-                <!-- Main Content -->
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-
-<div class="post-preview">
-
-    <a href="/2019/01/23/linq/">
-        <h2 class="post-title">
-            Lambda 的记录
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Java中的Lambda的使用
-filter返回序列中满足条件的元素集合
-// 从集合中返回Name等于&quot;liang&quot;的集合
-List&lt;User&gt; userListOrderBy= userList.stream().filter((User u) -&gt; u.getName().equals(&quot;liang&quot;)).collect(Col......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 梁小生 on
-        2019-01-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2019/01/23/WAR/">
-        <h2 class="post-title">
-            部署Spring Boot 的war包到Tomcat服务器
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-在项目建立好以后，首先确定本地能正常跑起来
-
-确定项目中有一个能访问的 REST API, 如果没有的话，会报404
-
-修改 pom.xml文件
- 1&lt;packaging&gt;war&lt;/packaging&gt;
-
-移除嵌入式tomcat插件避免与发布后的环境冲突
- 12345&lt;dependency&gt;    &lt;groupId&gt;org.springfra......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 梁小生 on
-        2019-01-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2019/01/17/VueAndSpringBoot/">
-        <h2 class="post-title">
-            记一次Spring boot 和Vue的前后端分离的入门培训
-        </h2>
-        <h3 class="post-subtitle">
-            前后端分离
-        </h3>
-        <div class="post-content-preview">
-            Spring-Boot-And-Vue记一次Spring Boot 和Vue的前后端分离培训由于公司之前是写C#的，现在要转 Java分布式 + vue,所以进行一次前后端的简单培训。 
-前端工具和环境：  Node.js V10.15.0  Vue.js V2.5.21  yarn: V1.13.0  IDE:VScode
-后端工具和环境：  Maven: 3.52  jdk: 1.8  ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 梁小生 on
-        2019-01-17
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2019/01/11/javaSync/">
-        <h2 class="post-title">
-            volatile & synchronized
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            volatile...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 梁小生 on
-        2019-01-11
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2019/01/10/JavaMemoryModel/">
-        <h2 class="post-title">
-            JAVA的内存模型
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Java内存模型Java内存模型规定了所有的变量都存储在主内存中。每条线程中还有自己的工作内存，线程的工作内存中保存了被该线程所使用到的变量（这些变量是从主内存中拷贝而来）。线程对变量的所有操作（读取，赋值）都必须在工作内存中进行。不同线程之间也无法直接访问对方工作内存中的变量，线程间变量值的传递均需要通过主内存来完成。
-   
-基于此种内存模型，便产生了多线程编程中的数据“脏读”等问题。
-......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 梁小生 on
-        2019-01-10
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2019/01/08/Thread/">
-        <h2 class="post-title">
-            线程和进程
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            进程
-狭义定义：进程就是一段程序的执行过程(一个程序)。
-
-广义定义：进程是一个具有一定独立功能的程序关于某个数据集合的一次运行活动。它是操作系统动态执行的基本单元，在传统的操作系统中，进程既是基本的分配单元，也是基本的执行单元。
-
-进程是一个实体。每一个进程都有它自己的地址空间，一般情况下，包括文本区域（text region）、数据区域（data region）和堆栈（stack reg......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 梁小生 on
-        2019-01-08
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2019/01/07/OOP/">
-        <h2 class="post-title">
-            抽象类和接口
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            抽象类和接口、虚方法和抽象方法抽象类
-抽象类是类，用class声明。当一个类中有抽象的方法时，这个类也必须被声明为抽象的。抽象的方法或类都使用abstract修饰符来修饰。抽象类中可以有属性和非抽象的方法。抽象类不能被实例化，因为它有抽象的方法，无法调用。所以抽象类一般被设计用于继承。继承一个抽象类需要实现其所有的抽象方法，否则的话子类也应该被声明为抽象的。可以定义一个抽象类的引用来指向它的......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by 梁小生 on
-        2019-01-07
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
-    
-        <li class="previous">
-            <a href="/">&larr; Newer Posts</a>
-        </li>
-    
-    
+                <h1 id="什么是-Promise？"><a href="#什么是-Promise？" class="headerlink" title="什么是 Promise？"></a>什么是 Promise？</h1><p>一个 Promise 对象代表一个目前还不可用，但是在未来的某个时间点可以被解析的值。它允许你以一种同步的方式编写异步代码。例如，如果你想要使用 Promise API 异步调用一个远程的服务器，你需要创建一个代表数据将会在未来由 Web 服务返回的 Promise 对象。唯一的问题是目前数据还不可用。当请求完成并从服务器返回时数据将变为可用数据。在此期间，Promise 对象将扮演一个真实数据的代理角色。接下来，你可以在 Promise 对象上绑定一个回调函数，一旦真实数据变得可用这个回调函数将会被调用。</p>
+<p>Promise 对象曾经以多种形式存在于许多语言中。</p>
+<p><strong>去除厄运的回调金字塔(Pyramid of Doom)</strong></p>
+<p>Javascript 中最常见的反模式做法是回调内部再嵌套回调。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 回调金字塔</span></span><br><span class="line">asyncOperation(<span class="function"><span class="keyword">function</span><span class="params">(data)</span></span>&#123;</span><br><span class="line">  <span class="comment">// 处理 `data`</span></span><br><span class="line">  anotherAsync(<span class="function"><span class="keyword">function</span><span class="params">(data2)</span></span>&#123;</span><br><span class="line">      <span class="comment">// 处理 `data2`</span></span><br><span class="line">      yetAnotherAsync(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">          <span class="comment">// 完成</span></span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>引入 Promises 之后的代码</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">promiseSomething()</span><br><span class="line">.<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(data)</span>&#123;</span></span><br><span class="line">    <span class="comment">// 处理 `data`</span></span><br><span class="line">    <span class="keyword">return</span> anotherAsync();</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(data2)</span>&#123;</span></span><br><span class="line">    <span class="comment">// 处理 `data2`</span></span><br><span class="line">    <span class="keyword">return</span> yetAnotherAsync();</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">()</span>&#123;</span></span><br><span class="line">    <span class="comment">// 完成</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>Promises 将嵌套的 callback，改造成一系列的<code>.then</code>的连缀调用，去除了层层缩进的糟糕代码风格。Promises 不是一种解决具体问题的算法，而已一种更好的代码组织模式。接受新的组织模式同时，也逐渐以全新的视角来理解异步调用。</p>
+<p>各个语言平台都有相应的 Promise 实现</p>
+<ul>
+<li>Java’s java.util.concurrent.Future</li>
+<li>Python’s Twisted deferreds and PEP-3148 futures</li>
+<li>F#’s Async</li>
+<li>.Net’s Task</li>
+<li>C++ 11’s std::future</li>
+<li>Dart’s Future</li>
+<li>Javascript’s Promises/A/B/D/A+</li>
 </ul>
+<h3 id="Promises-A-规范"><a href="#Promises-A-规范" class="headerlink" title="Promises/A 规范"></a>Promises/A 规范</h3><p>promise 表示一个最终值，该值由一个操作完成时返回。</p>
+<ul>
+<li>promise 有三种状态：<strong>未完成</strong> (unfulfilled)，<strong>完成</strong> (fulfilled) 和<strong>失败</strong> (failed)。</li>
+<li>promise 的状态只能由<strong>未完成</strong>转换成<code>完成</code>，或者<strong>未完成</strong>转换成<strong>失败</strong> 。</li>
+<li>promise 的状态转换只发生一次。</li>
+</ul>
+<p>promise 有一个 then 方法，then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数。第三个函数用于处理进度信息（对进度回调的支持是可选的）。</p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">promiseSomething().<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(fulfilled)</span>&#123;</span></span><br><span class="line">        <span class="comment">//当promise状态变成fulfilled时，调用此函数</span></span><br><span class="line">    &#125;,<span class="function"><span class="keyword">function</span><span class="params">(rejected)</span>&#123;</span></span><br><span class="line">        <span class="comment">//当promise状态变成rejected时，调用此函数</span></span><br><span class="line">    &#125;,<span class="function"><span class="keyword">function</span><span class="params">(progress)</span>&#123;</span></span><br><span class="line">        <span class="comment">//当返回进度信息时，调用此函数</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 
+                <hr>
 
+                
 
-                <!-- 如果开启评论功能 -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2019/03/20/Generics/" data-toggle="tooltip" data-placement="top" title="泛型函数">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/03/05/AutoResetEvent/" data-toggle="tooltip" data-placement="top" title="C# 中的 AutoResetEvent关键字">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
                 
 
             </div>
+    <!-- Side Catalog Container -->
+        
+
     <!-- Sidebar Container -->
+
             <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
                 <!-- Featured Tags -->
                 
                 <section>
                     <!-- no hr -->
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
-                            
-                            <a href="/tags/#C#" title="C#" rel="2">C#</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#面向对象" title="面向对象" rel="4">面向对象</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                            <a href="/tags/#Spring Boot" title="Spring Boot" rel="2">Spring Boot</a>
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
-                            
-                        
+                       
                     </div>
                 </section>
                 
 
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-                            <img src="/img/me.png">
-                        
-
-                        
-                            <p>十年如一日，然后我就成老梁了！</p>
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-
-                            
-
-                            
-
-                            
-                                <li>
-                                    <a target="_blank" href="https://github.com/liangwei0101">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
                 <!-- Friends Blog -->
                 
                 <hr>
@@ -485,9 +264,51 @@ List&lt;User&gt; userListOrderBy= userList.stream().filter((User u) -&gt; u.getN
                 </ul>
                 
             </div>
-        
+
+        </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->

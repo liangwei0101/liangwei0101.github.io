@@ -13,11 +13,11 @@
 
     <title>
         
-          Archives - 梁小生 | Blog
+          webImportant - 梁小生 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liangwei.com/archives/">
+    <link rel="canonical" href="http://www.liangwei.com/2019/04/16/webImportant/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,7 +90,7 @@
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -98,13 +98,6 @@
                         
                         <li>
                             <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -147,214 +140,202 @@
 
 
     <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/img/archive.jpg')">
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liangwei.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/index.jpg')
+    }
+</style>
+<header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Archives</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">档案</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>webImportant</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 梁小生 on
+                        2019-04-16
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 归档列表 -->
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
 
-            
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-             <!-- 归档列表 -->
+                <h1 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h1><p>[TOC]</p>
+<h3 id="get和post"><a href="#get和post" class="headerlink" title="get和post"></a>get和post</h3><ul>
+<li>GET在浏览器回退时是等幂性，而POST会再次提交请求。</li>
+<li>GET产生的URL地址可以被保存书签，而POST不可以</li>
+<li>GET请求会被浏览器主动cache，而POST不会，除非手动设置。</li>
+<li>GET请求只能进行url编码，而POST支持多种编码方式。</li>
+<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留。</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST么有。</li>
+<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制。</li>
+<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息。</li>
+<li>GET参数通过URL传递，POST放在Request body中。</li>
+</ul>
+<h3 id="js原型链和继承"><a href="#js原型链和继承" class="headerlink" title="js原型链和继承"></a>js原型链和继承</h3><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><ul>
+<li>闭包是一个定义在其它函数(父函数)里面的函数，它拥有对父函数里面变量的访问权</li>
+<li>闭包拥有如下三个作用域的访问：自身的作用域、父作用域、全局作用域</li>
+</ul>
+<h3 id="es6的继承"><a href="#es6的继承" class="headerlink" title="es6的继承"></a>es6的继承</h3><p>class更加贴近于面向对象的写法、class 实现继承更加简单易懂，易理解、本质还是语法糖，使用prototype</p>
+<h3 id="js的单例模式"><a href="#js的单例模式" class="headerlink" title="js的单例模式"></a>js的单例模式</h3><h3 id="Web方面的优化"><a href="#Web方面的优化" class="headerlink" title="Web方面的优化"></a>Web方面的优化</h3><ul>
+<li>前端的优化：DNS 、请求优化、小图标进行 base64、</li>
+</ul>
+<h3 id="看的啥书"><a href="#看的啥书" class="headerlink" title="看的啥书"></a>看的啥书</h3><p>+《JavaScript高级编程》、《重构和代码简洁之道》、《数据结构》、《设计模式》、《》</p>
+<h3 id="Repaint和Reflow"><a href="#Repaint和Reflow" class="headerlink" title="Repaint和Reflow"></a>Repaint和Reflow</h3><ul>
+<li><p>Repaint（重绘）：没有改变布局(宽高)的情况下发生，如改变visibility、outline、背景色等等</p>
+</li>
+<li><p>Reflow(重排)就是DOM的变化影响到了元素的几何属性（宽和高）</p>
+</li>
+</ul>
+<h3 id="es6的继承怎么弄"><a href="#es6的继承怎么弄" class="headerlink" title="es6的继承怎么弄"></a>es6的继承怎么弄</h3><ul>
+<li>Class之间通过使用extends关键字，比原型链要方便清晰很多</li>
+</ul>
+<h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><ul>
+<li><p>Promise中有几个状态：</p>
+<ul>
+<li>pending: 初始状态, 非 fulfilled 或 rejected.</li>
+<li>fulfilled: 成功的操作.</li>
+<li>rejected: 失败的操作.</li>
+</ul>
+</li>
+<li><p>Promise对象是一个构造函数，用来生成Promise实例。通过在函数内部return 一个 Promise对象的实例，这样就可以使用Promise的属性和方法进行下一步操作了、</p>
+</li>
+</ul>
+<h3 id="web学习应该学习相关哪些知识点"><a href="#web学习应该学习相关哪些知识点" class="headerlink" title="web学习应该学习相关哪些知识点"></a>web学习应该学习相关哪些知识点</h3><h3 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h3><p><img src="https://user-gold-cdn.xitu.io/2018/1/21/1611938ba2b4b9f4?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="事件驱动"></p>
+<h3 id="开子线程（工作线程）"><a href="#开子线程（工作线程）" class="headerlink" title="开子线程（工作线程）"></a>开子线程（工作线程）</h3><h3 id="js垃圾回收机制"><a href="#js垃圾回收机制" class="headerlink" title="js垃圾回收机制"></a>js垃圾回收机制</h3><ul>
+<li>最常见的方式是清除标记，即垃圾回收器在运行时会为内存中每个变量添加一个标记，然后，去除环境变量以及其所引用的变量的标记，再次之后再被添加上标记的变量视为将被删除的变量，最后进行内存清除，销毁那些带标记的值并回收其内存空间。</li>
+</ul>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><ul>
+<li>JSONP 、Proxy代理、CORS跨域、websocket</li>
+</ul>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><ul>
+<li>函数变量的作用域有全局变量和局部变量两种，es6中有 let关键字来申明块作用域</li>
+</ul>
+<h3 id="TCP-Websocket-Cookie-Session（放redis、Memcached）-认证"><a href="#TCP-Websocket-Cookie-Session（放redis、Memcached）-认证" class="headerlink" title="TCP / Websocket / Cookie/ Session（放redis、Memcached）/ 认证"></a>TCP / Websocket / Cookie/ Session（放redis、Memcached）/ 认证</h3><h3 id="怎么学习前端的"><a href="#怎么学习前端的" class="headerlink" title="怎么学习前端的"></a>怎么学习前端的</h3><p>别人在群里会经常讨论问题，比如图片的压缩，然后会怎么样、积极的拥抱变话：vue cli3.0，flutter</p>
 
 
+                <hr>
 
-            
-            <div class="one-tag-list">
-                <span class="fa fa-calendar-times-o listing-seperator" id="2019">
-                    <span class="tag-text">2019</span>
-                </span>
-                <ul>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    03-05
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/03/05/AutoResetEvent/" style="color: #0085a1">
-                        <span>
-                            C# 中的 AutoResetEvent关键字
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    02-22
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/02/22/reconstruction/" style="color: #0085a1">
-                        <span>
-                            小议码重构
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    02-01
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/02/01/Patterns/" style="color: #0085a1">
-                        <span>
-                            设计模式
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    01-24
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/01/24/swagger/" style="color: #0085a1">
-                        <span>
-                            spring boot 使用 swagger 404
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    01-23
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/01/23/linq/" style="color: #0085a1">
-                        <span>
-                            Lambda 的记录
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    01-23
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/01/23/WAR/" style="color: #0085a1">
-                        <span>
-                            部署Spring Boot 的war包到Tomcat服务器
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    01-17
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/01/17/VueAndSpringBoot/" style="color: #0085a1">
-                        <span>
-                            记一次Spring boot 和Vue的前后端分离的入门培训
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    01-11
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/01/11/javaSync/" style="color: #0085a1">
-                        <span>
-                            volatile & synchronized
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    01-10
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/01/10/JavaMemoryModel/" style="color: #0085a1">
-                        <span>
-                            JAVA的内存模型
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    01-08
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/01/08/Thread/" style="color: #0085a1">
-                        <span>
-                            线程和进程
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <li>
-                    01-07
-                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                    <a href="/2019/01/07/OOP/" style="color: #0085a1">
-                        <span>
-                            抽象类和接口
-                        </span>
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </li>
                 
 
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2019/04/18/gc/" data-toggle="tooltip" data-placement="top" title="gc">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/04/12/node/" data-toggle="tooltip" data-placement="top" title="">Next Post &rarr;</a>
+                        </li>
+                    
                 </ul>
-            </div>
-            
 
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://github.com/liangwei0101" target="_blank">github 梁伟</a></li>
+                    
+                </ul>
+                
+            </div>
 
         </div>
     </div>
-</div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
 
 
     <!-- Footer -->

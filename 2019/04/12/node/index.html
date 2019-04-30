@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          梁小生 | Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://www.liangwei.com/2019/04/12/node/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">梁小生 Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://www.liangwei.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/index.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 梁小生 on
+                        2019-04-12
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="JS学习一波"><a href="#JS学习一波" class="headerlink" title="JS学习一波"></a>JS学习一波</h1><p>最近看了一下《JavaScript高级编程》、《Node深入浅出》，挑了一些自己认为重要的、不熟悉的地方做了一下笔记。</p>
+<h2 id="《Node深入浅出》笔记"><a href="#《Node深入浅出》笔记" class="headerlink" title="《Node深入浅出》笔记"></a>《Node深入浅出》笔记</h2><h3 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h3><p>期初：一个外国人”Ryan Dahl”想写一个高性能的<strong>Web服务器</strong>，在他失败了几次以后，找到了几个要点：<strong>事件驱动、异步 I/O</strong>。挑语言的时候，经历了这样的选择：</p>
+<ul>
+<li>C语言的开发门太高，不会有ܹ多的开发者能把它用于日常的务开发，放弃了。</li>
+<li>Haskell（我不知道这个是啥）”Ryan Dahl”觉得这个好难，放弃了。</li>
+<li>Ruby性能不咋滴，放弃了。</li>
+</ul>
+<p>相比之下JavaScript：</p>
+<ul>
+<li><p>比 C的开发门槛低；</p>
+</li>
+<li><p>导入异步I/O库没有啥压力；</p>
+</li>
+<li><p>Chrome引擎V8牛皮（高性能）；</p>
+</li>
+<li><p>符合事件驱动。</p>
+</li>
+</ul>
+<p>因此JavaScript成为了Node的实现语言。而不是说直接想JavaScript写后端，这中间是有这样一个过程的。 </p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>异步I/O（利用回调函数）</li>
+<li>单线程：<ul>
+<li>Node是单线程，JavaScript和其他线程不能共享任何状态。所以没有死锁，没有上下文切换</li>
+<li>不能利用多核CPU</li>
+<li>大量计算占用CPU会导致无法调用异步I/O （长时间的计算，将导致CPU时间片不能释放）</li>
+<li><strong>如果有大计算阻塞UI，可以使用Web Workers工作线程</strong>。但只能通过消息传递的方式来传递结果，但是工作线程不能访问到UI主线程。我的理解是：C#、Java等主线程和子线程常用的思想是不能在这里实现。</li>
+</ul>
+</li>
+</ol>
+<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>之前有人问我CommonJS 和 es 有啥区别，我是不知道CommonJS 和 es有啥区别。刚好看到这里，如下图：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9942046-14877b6b88bc19b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CommonJS和es关系--来自《node.js深入浅出》"></p>
+<p>因为ECMAScript仅定了部分核心代码，对于文件系统， I/O等库没有相关标准。缺点有如下：</p>
+<ul>
+<li>没有模块系统</li>
+<li>标准库较少</li>
+<li>没有标准接口</li>
+<li><p>缺乏包管理系统（没有自动加载能力和安装依赖能力）</p>
+</li>
+<li><p>Node借鉴 CommonJS的Modules规范实现了一个模块系统： NPM。一个模块文件中有：require、exports、module三个变量</p>
+</li>
+<li><p>Node性能不够的时候呢，可以编写c/c++扩展模块</p>
+</li>
+</ul>
+<h3 id="异步I-O"><a href="#异步I-O" class="headerlink" title="异步I/O"></a>异步I/O</h3><ul>
+<li><p>Node是单线程的，这里的单线程仅仅只是JavaScript执行在单线程中。在Node中，无论是linux还是Windowsࣰ中，内部完成I/O任务的是另有线程的。</p>
+</li>
+<li><p>事件循环：在进程启动时， Node会会创建一个类似于while(true)的循环，判断是否有事件待处理，有就取出事件和相关回调函数。如果存在关联的回调函数，就执行他们，然后进入下一个循环。没有事件就退出进程。如下图：</p>
+</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/9942046-bd34244c3f21bf2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="异步调用--来自《node.js深入浅出》"></p>
+<ul>
+<li>浏览器采用了类似的机制。都有对应的观察者。在Node中，网络请求、文件I/O都有自己的观察者。事件循环从观察者中读取数据。(给我的感觉是，有观察者类似于队列，然后一个循环不断从队列里头去读数据，有点读写分离的感觉)</li>
+</ul>
+<h3 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h3><ul>
+<li>promise是咋整的，这里就不展开了，自己看吧。</li>
+</ul>
+<h3 id="内存控制"><a href="#内存控制" class="headerlink" title="内存控制"></a>内存控制</h3><ul>
+<li><p>V8堆内存的最大值在64位系统上为1464 MB， 32系统则为732 MB</p>
+</li>
+<li><p>Scavenge算法 </p>
+<blockquote>
+<p>Scavenge算法进行垃圾回收。它将堆内存一分为二,每一部分空间称为 semispace。在这两个 semispace 空间中,只有一个处于使用中,另一个处于闲置状态。处于使用状态的 semispace 空间称为 From 空间,处于闲置状态的空间称为 To 空间。当我们分配对象时,先是在 From 空间中进行分配。当开始进行垃圾回收时,会检查 From 空间中的存活对象,这 些存活对象将被复制到 To 空间中,而非存活对象占用的空间将会被释放。完成复制后,From 空 间和To空间的角色发生对换。 简而言之, 在垃圾回收的过程中, 就是通过将存活对象在两个 semispace 空间之间进行复制。</p>
+</blockquote>
+<blockquote>
+<p>Scavenge算法通过牺牲空间换时间的算法非常适合生命周期短的新生代，但是，当一个对象经过多次复制，生命周期较长的时候或则To空间不足的时候，对象会被分配到进入到老生代中，需要采用新的算法进行垃圾回收。</p>
+</blockquote>
+</li>
+<li><p>Mark-Sweep算法</p>
+<blockquote>
+<p>Mark-Sweep 在标记阶段遍历堆中的所有对象,并标记活着的对象,在随后的清除阶段中,只清除没有被标记的对象。可以看出,Scavenge 中只复制活着的对象,而 Mark-Sweep 只清理死亡对象。<br> Mark-Sweep 在进行一次标记清除回收后,内存空间会出现不连续的状态。这种内存碎片会对后续的内存分配造成问题,因为很可能出现需要分配一个大对象的情况,这时所有的碎片空间都无法完成此次分配,就会提前触发垃圾回收,而这次回收是不必要的。Mark-Compact 对象在标记为死亡后,在整理的过程中,将活着的对象往一端移动,移动完成后,直接清理掉边界外的内存</p>
+</blockquote>
+</li>
+<li><p>Mark-Compacts算法</p>
+<blockquote>
+<p>Mark-Compacts算法：mark-compact对于标记死亡对象的整理过程中，将活着的对象往一端移动，移动完成后，直接清理掉边界外的内存。（简单理解–整理活着对象向一段移动，另一端直接清空）</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>其他：GC无法立即回收内存中的闭包和全局变量</strong></p>
+<ul>
+<li><p>Buffer对象并非通过V8分配，在Node需要处理网络流或者文件I/O流的时候，可能操作字符串不能满足传输，可以用Buffer。Buffer属性指向的是C++层面上的Buffer对象，所以不在V8堆中。</p>
+</li>
+<li><p>Session因为V8内存的问题，不适合放在内部维护，可以放在外部，比如说：redis、Memcached中。</p>
+</li>
+</ul>
+<h2 id="《JavaScript高级编程》笔记"><a href="#《JavaScript高级编程》笔记" class="headerlink" title="《JavaScript高级编程》笔记"></a>《JavaScript高级编程》笔记</h2><h3 id="面向对象程序设计"><a href="#面向对象程序设计" class="headerlink" title="面向对象程序设计"></a>面向对象程序设计</h3><p>因为接触的多数是面向对象的语言，对js里面的面向对象的实现不是很了解，故一个记录。</p>
+<ul>
+<li><p><strong>原型的关键</strong></p>
+<ul>
+<li>所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）</li>
+<li>所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)</li>
+<li>所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)</li>
+<li><strong>所有引用类型，它的’_ _ proto_ _’属性指向它的构造函数的’prototype’属性</strong></li>
+<li><strong>当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它的’_ _ proto_ _’属性(也就是它的构造函数的’prototype’属性)中去寻找</strong></li>
+</ul>
+</li>
+<li><p><strong>prototype</strong>的作用：如果我们要通过Foo()来创建<strong>很多个</strong>对象，我们创建出来的每一个对象里面都有showName和showAge方法，会占用很多的资源。而通过原型来实现的话，只需要在构造函数里面给属性赋值，而把方法写在Foo.prototype属性里面。每个对象都可以使用prototype属性里面的showName、showAge方法，并且节省资源。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">this</span>.name=name;</span><br><span class="line">			<span class="keyword">this</span>.age=age;</span><br><span class="line">			<span class="keyword">this</span>.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">				<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">			&#125;</span><br><span class="line">	<span class="keyword">this</span>.showAge=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"And I'm "</span>+<span class="keyword">this</span>.age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果使用prototype的话，将变成这样子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name=name;</span><br><span class="line">		<span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype=&#123;</span><br><span class="line">	<span class="comment">// prototype对象里面又有其他的属性</span></span><br><span class="line">	showName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name);<span class="comment">//this是什么要看执行的时候谁调用了这个函数</span></span><br><span class="line">	&#125;,</span><br><span class="line">	showAge:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"And I'm "</span>+<span class="keyword">this</span>.age);<span class="comment">//this是什么要看执行的时候谁调用了这个函数</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	 <span class="keyword">this</span>.name=name;</span><br><span class="line">	 <span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//this是什么要看执行的时候谁调用了这个函数。</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name+<span class="string">" And I'm "</span>+<span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Foo(<span class="string">'小明'</span>,<span class="number">19</span>);</span><br><span class="line">fn.toString(); <span class="comment">//I'm 小明 And I'm 19</span></span><br><span class="line"><span class="built_in">console</span>.log(fn.toString===Foo.prototype.__proto__.toString); <span class="comment">//true</span></span><br><span class="line">	</span><br><span class="line"><span class="built_in">console</span>.log(fn.__proto__ ===Foo.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.__proto__===<span class="built_in">Object</span>.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__===<span class="literal">null</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p> <img src="https://img-blog.csdn.net/20180909114030465?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2OTk2Mjcx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="原型链"></p>
+<h4 id="创建对象的方式"><a href="#创建对象的方式" class="headerlink" title="创建对象的方式"></a>创建对象的方式</h4></li>
+<li><p>工厂模式（不能对象的类型）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, job</span>) </span>&#123; </span><br><span class="line"> <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>() </span><br><span class="line"> o.name = name </span><br><span class="line"> o.job = job </span><br><span class="line"> o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name) </span><br><span class="line"> &#125; </span><br><span class="line"> <span class="keyword">return</span> o </span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// person1 为 Object </span></span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">'Jiang'</span>, <span class="string">'student'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构造函数模式（每个方法都要在每个实例上重新创建一次）</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.job = job</span><br><span class="line">  <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// person1 为 Person  </span></span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Jiang'</span>, <span class="string">'student'</span>)</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">'X'</span>, <span class="string">'Doctor'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>原型模式</strong> （原型的好处是可以让所有的实例对象共享它所包含的属性和方法，引用类型值会有问题）<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function Person() &#123;</span><br><span class="line">&#125;</span><br><span class="line">Person<span class="selector-class">.prototype</span><span class="selector-class">.name</span> = <span class="string">'Jiang'</span></span><br><span class="line">Person<span class="selector-class">.prototype</span><span class="selector-class">.job</span> = <span class="string">'student'</span></span><br><span class="line">Person<span class="selector-class">.prototype</span><span class="selector-class">.sayName</span> = function() &#123;</span><br><span class="line">  console.log(this.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span> person1 = new Person()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>person2中没有加friends的，输出也是有的<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> person1 = <span class="built_in">new</span> Person()</span><br><span class="line"><span class="built_in">var</span> person2 = <span class="built_in">new</span> Person()</span><br><span class="line">person1.friends.<span class="built_in">push</span>('Van')</span><br><span class="line">console.<span class="built_in">log</span>(person1.friends) //[<span class="string">"Shelby"</span>, <span class="string">"Court"</span>, <span class="string">"Van"</span>]</span><br><span class="line">console.<span class="built_in">log</span>(person2.friends) //[<span class="string">"Shelby"</span>, <span class="string">"Court"</span>, <span class="string">"Van"</span>]</span><br><span class="line">console.<span class="built_in">log</span>(person1.friends === person2.friends) // <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>所以，对于引用类型的，尽量是放在对象里头。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.friends = [<span class="string">'Shelby'</span>, <span class="string">'Court'</span>]</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person()</span><br><span class="line">person1.friends.push(<span class="string">'Van'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person1.friends)  <span class="comment">//["Shelby", "Court", "Van"]</span></span><br><span class="line"><span class="built_in">console</span>.log(person2.friends) <span class="comment">// ["Shelby", "Court"]</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.friends === person2.friends) <span class="comment">//false</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><strong>动态原型模式</strong> ，态原型模式将所有信息都封装在了构造函数中，初始化的时候，通过检测某个应该存在的方法时候有效，来决定是否需要初始化原型。只有在sayName方法不存在的时候，才会将它添加到原型中。这段代码只会初次调用构造函数的时候才会执行。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, job</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 属性</span></span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.job = job</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 方法</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Jiang'</span>, <span class="string">'Student'</span>)</span><br><span class="line">person1.sayName()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>寄生构造函数模式</strong>，构造函数如果不返回对象，默认也会返回一个新的对象，通过在构造函数的末尾添加一个return语句，可以重写调用构造函数时返回的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  o.name = name</span><br><span class="line">  o.job = job</span><br><span class="line">  o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> o</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Jiang'</span>, <span class="string">'student'</span>)</span><br><span class="line">person1.sayName()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>稳妥构造函数模式</strong>： 稳妥构造函数模式和寄生模式类似，有两点不同:一是创建对象的实例方法不引用this，而是不使用new操作符调用构造函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  o.name = name</span><br><span class="line">  o.job = job</span><br><span class="line">  o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> o</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = Person(<span class="string">'Jiang'</span>, <span class="string">'student'</span>)</span><br><span class="line">person1.sayName()</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2019/04/16/webImportant/" data-toggle="tooltip" data-placement="top" title="webImportant">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2019/03/27/TCP-IP/" data-toggle="tooltip" data-placement="top" title="TCP/IP">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://github.com/liangwei0101" target="_blank">github 梁伟</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/liangwei0101">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 梁小生 Blog 2019 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://www.liangwei.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627256-1';
+    var _gaDomain = 'huangxuan.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = '4cc1f2d8f3067386cc5cdb626a202912';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://www.liangwei.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

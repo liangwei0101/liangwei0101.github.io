@@ -13,11 +13,11 @@
 
     <title>
         
-          Lambda 的记录 - 梁小生 | Blog
+          TCP/IP - 梁小生 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liangwei.com/2019/01/23/linq/">
+    <link rel="canonical" href="http://www.liangwei.com/2019/03/27/TCP-IP/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -148,7 +148,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('psb.jpg')
+        background-image: url('../../../../../img/article_bg.jpg')
     }
 </style>
 <header class="intro-header">
@@ -158,20 +158,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#C#" title="C#">C#</a>
+                          <a class="tag" href="/tags/#网络" title="网络">网络</a>
                         
-                          <a class="tag" href="/tags/#Linq" title="Linq">Linq</a>
-                        
-                          <a class="tag" href="/tags/#lamdba" title="lamdba">lamdba</a>
-                        
-                          <a class="tag" href="/tags/#JAVA" title="JAVA">JAVA</a>
+                          <a class="tag" href="/tags/#TCP/IP" title="TCP/IP">TCP/IP</a>
                         
                     </div>
-                    <h1>Lambda 的记录</h1>
+                    <h1>TCP/IP</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by 梁小生 on
-                        2019-01-23
+                        2019-03-27
                     </span>
                 </div>
             </div>
@@ -190,39 +186,84 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="Java中的Lambda的使用"><a href="#Java中的Lambda的使用" class="headerlink" title="Java中的Lambda的使用"></a>Java中的Lambda的使用</h2><ul>
-<li><p><strong>filter</strong>返回序列中满足条件的元素集合</p>
-<pre><code>// 从集合中返回Name等于&quot;liang&quot;的集合
-List&lt;User&gt; userListOrderBy= userList.stream().filter((User u) -&gt; u.getName().equals(&quot;liang&quot;)).collect(Collectors.toList());
-</code></pre></li>
-<li><p><strong>sort</strong> 集合排序</p>
-<pre><code>// 将集合已No字段升序排序，若是要降序 user2.getNo() - user1.getNo() 即可
-Collections.sort(userList,(user1, user2) -&gt; user1.getNo() - user2.getNo());
-</code></pre></li>
+                <h1 id="TCP-IP-协议"><a href="#TCP-IP-协议" class="headerlink" title="TCP/IP 协议"></a>TCP/IP 协议</h1><h2 id="TCP-IP-协议体系结构与OSI-7-层模型的对应关系："><a href="#TCP-IP-协议体系结构与OSI-7-层模型的对应关系：" class="headerlink" title="TCP/IP 协议体系结构与OSI 7 层模型的对应关系："></a>TCP/IP 协议体系结构与OSI 7 层模型的对应关系：</h2><p><img src="https://upload-images.jianshu.io/upload_images/2964446-1fd7a0f3216c0530.jpg" alt="7层模型">   </p>
+<p>TCP/IP协议族按照层次由上到下，层层包装。</p>
+<ul>
+<li><strong>应用层：</strong>向用户提供一组常用的应用程序，比如电子邮件、文件传输访问、远程登录等。</li>
+<li><strong>传输层：</strong>为网络提供了流量控制,错误控制和确认服务。如：TCP和 UDP传输协议。</li>
+<li><strong>网络层：</strong>提供独立于硬件的逻辑寻址,实现物理地址与逻辑地址的转换。</li>
+<li><strong>网络接口层：</strong>主要是指物理层次的一些接口,比如电缆等。</li>
 </ul>
-<h2 id="C-中常用Lambda和Linq结合"><a href="#C-中常用Lambda和Linq结合" class="headerlink" title="C# 中常用Lambda和Linq结合"></a>C# 中常用Lambda和Linq结合</h2><ul>
-<li><p>C# <strong>FirstOrDefault()</strong>，返回序列中满足条件的第一个元素；如果未找到这样的元素，则返回null</p>
-<pre><code>// 从集合中返回Value为&quot;1&quot;, IconKey
-var obij = FuncCache.FirstOrDefault(p =&gt; p.Value == &quot;1&quot; &amp;&amp; p.IconKey == &quot;2&quot;);
-</code></pre></li>
-<li><p>C# <strong>Where()</strong>，从集合中挑出符合条件的多个项</p>
-<pre><code>// 将BranchNoOption集合中的EnableStatus字段为&apos;1&apos;的集合挑选出来
-BranchNoOption = new ObservableCollection&lt;F120061_Info&gt;(BranchNoOption.Where(p =&gt; p.EnableStatus == &apos;1&apos;));
-</code></pre></li>
-<li><p>C# <strong>OrderBy()、OrderByDescending()</strong>，将集合按某个字段进行升序或者降序排序</p>
-<pre><code>// 将workFlowDtoList集合按AuditLevel字段升序排序
-workFlowDtoList = new List&lt;WorkFlowDto&gt;(workFlowDtoList.OrderBy(s =&gt; s.AuditLevel));
-</code></pre></li>
-<li><p>C# <strong>GroupBy()</strong>，集合元素分组</p>
-<pre><code>// studentGroup 为按studentList按ClassName分类好的集合
-var studentGroup = studentList.GroupBy(s =&gt; s.ClassName);
-</code></pre></li>
-<li><p>C# <strong>Select()</strong>，挑选出集合中的字段的值变成一个：挑选出字段的新集合</p>
-<pre><code>// branchNoList 为按F360576_InfoList挑选出的所有BranchNo集合
-var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
-</code></pre></li>
-<li><p>C# <strong>中Where扩展</strong></p>
-  <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 挑选出集合中名称不为1或者2的</span></span><br><span class="line"></span><br><span class="line">public void <span class="keyword">Test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span>  testList = new ObservableCollection&lt;MyClass&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; 1000; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="keyword">test</span> = new MyClass();</span><br><span class="line">        <span class="keyword">test</span>.Name = i.<span class="keyword">ToString</span>();</span><br><span class="line">        <span class="keyword">test</span>.Value = i.<span class="keyword">ToString</span>();</span><br><span class="line">        testList.Add(<span class="keyword">test</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> listTemp = testList.Where(s =&gt; !<span class="string">"1,2"</span>.Contains(s.Name)).ToList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<h2 id="TCP的连接方式"><a href="#TCP的连接方式" class="headerlink" title="TCP的连接方式"></a>TCP的连接方式</h2><p>当应用程序希望通过 TCP 与另一个应用程序通信时，它会发送一个通信请求。这个请求必须被送到一个确切的地址。在双方“握手”之后，TCP 将在两个应用程序之间建立一个<strong>全双工 (full-duplex)</strong> 的通信。这里有必要说下三种通信方式。</p>
+<ul>
+<li><p><strong>单工通信（simplex）</strong><br>  单工通信只支持信号在一个方向上传输（正向或反向），任何时候不能改变信号的传输方向。如：计算机和打印机之间的通信是单工模式，因为只有计算机向打印机传输数据，而没有相反方向的数据传输。</p>
+</li>
+<li><p><strong>半双工通信（half-duplex）</strong><br>  半双工通信允许信号在两个方向上传输，但某一时刻只允许信号在一个信道上单向传输。因此，半双工通信实际上是一种可切换方向的单工通信。例如：传统的对讲机使用的就是半双工通信方式。由于对讲机传送及接收使用相同的频率，不允许同时进行。</p>
+</li>
+<li><p><strong>全双工（full-duplex）</strong><br>  全双工通信允许数据同时在两个方向上传输，即有两个信道，因此允许同时进行双向传输。全双工通信是两个单工通信方式的结合，要求收发双方都有独立的接收和发送能力。全双工通信效率高，控制简单，但造价高。计算机之间的通信是全双工方式。</p>
+</li>
+</ul>
+<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p><img src="https://upload-images.jianshu.io/upload_images/9942046-5b2c6387b7b18ed0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="报文格式"></p>
+<ul>
+<li>源端口号/目的端口号: 表示数据流转（源端口和源IP地址的作用是标识报文的返回地址）。</li>
+<li>32位序列：seq序号，用来标识数据包，发起方发送数据时对此进行标记。</li>
+<li>32位确认序号：Ack序号，只有ACK标志位为1时，确认序号字段才有效，Ack=Seq+1。</li>
+<li>4位首部长度: 表示该tcp报头有多少个4字节(32个bit)</li>
+<li>6位保留: 顾名思义, 先保留着, 以防万一</li>
+<li>6位标志位（SYN、ACK、PSH、RST、URG、FIN）<blockquote>
+<p>URG: 标识紧急指针是否有效<br><strong>SYN：请求建立连接</strong><br><strong>ACK： 标识确认序号是否有效 </strong><br>PSH: 用来提示接收端应用程序立刻将数据从tcp缓冲区读走<br>RST: 要求重新建立连接. 我们把含有RST标识的报文称为复位报文段<br>FIN：释放一个连接</p>
+</blockquote>
+</li>
+</ul>
+<p>​    需要注意的是：<br>​    （A）不要将确认序号Ack与标志位中的ACK搞混了。<br>​    （B）确认方Ack=发起方Seq+1，两端配对。</p>
+<ul>
+<li>16位窗口大小：无需等待确认应答而可以继续发送数据的最大值。</li>
+<li>16位校验和：发送端填充，CRC校验，接收端校验不通过，认为数据有问题。校验和包含TCP首部和TCP数据部分。</li>
+<li>16位紧急指针：标识那部分数据是紧急数据</li>
+</ul>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p><img src="https://upload-images.jianshu.io/upload_images/9942046-5b1360a1d85dba73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="三次握手"></p>
+<p><strong>1. 第一次握手：</strong></p>
+<ul>
+<li>客户端发送一个TCP标志位SYN=1（请求建立连接），Seq=J（随机会产生）；</li>
+</ul>
+<p><strong>2. 第二次握手：</strong>服务器端收到请求包后，将客户端的请求包SYN=1（seq=J）放入到自己的未连接队列，此时服务器需要发包给客户端：</p>
+<ul>
+<li>确认自己收到其连接请求的确认包ACK=1、ack=J+1，向客户端表明已知道了其连接请求</li>
+<li>向客户端发送连接请求包SYN=1、seq=K（随机会产生），询问客户端是否准备好建立连接，进行数据通信； </li>
+<li>此时服务器进入SYN_RECV状态。</li>
+</ul>
+<p><strong>3. 第三次握手：</strong></p>
+<ul>
+<li>客户端收到服务器的包后，知道服务器同意建立连接；向服务器发送连接建立的确认包ACK=1、ack=K+1</li>
+</ul>
+<p><strong>为什么不能用两次握手进行连接？</strong></p>
+<ul>
+<li>答：主要为了防止<strong>“脏链接”</strong>。客户端在发送数据的过程中可能因网络问题数据丢失，客户端认为连接没有建立，会进行重传。假设每次发送的数据一直在丢失，客户端一直SYN，服务器就会产生多个无效连接，占用资源，这个时候服务器可能会挂掉。</li>
+</ul>
+<p><strong>SYN攻击：</strong></p>
+<ul>
+<li>在三次握手过程中，Server发送SYN-ACK之后，收到Client的ACK之前的TCP连接称为半连接（half-open connect），也就是创建大量的脏链接。</li>
+</ul>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p>所谓四次挥手（Four-Way Wavehand）即终止TCP连接，就是指断开一个TCP连接时，需要客户端和服务端总共发送4个包以确认连接的断开。在socket编程中，这一过程由客户端或服务端任一方执行close来触发，整个流程如下图所示：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9942046-4c2a8a6069ab5e35.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="四次挥手"></p>
+<p>由于TCP连接时全双工的，因此，每个方向都必须要单独进行关闭，这一原则是当一方完成数据发送任务后，发送一个FIN来终止这一方向的连接，收到一个FIN只是意味着这一方向上没有数据流动了，即不会再收到数据了，但是在这个TCP连接上仍然能够发送数据，直到这一方向也发送了FIN。</p>
+<p><strong>为什么要四握手进行连接？</strong></p>
+<ol>
+<li><p>FIN =1 此时，客户端进入终止FIN-WAIT-1（终止等待1）状态。</p>
+</li>
+<li><p>服务器收到连接释放报文，发出确认报文，服务端就进入了CLOSE-WAIT（关闭等待）状态</p>
+</li>
+<li><p>客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文。</p>
+</li>
+<li><p>服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。</p>
+</li>
+<li><p>客户端收到服务器的连接释放报文后，必须发出确认，客户端就进入了TIME-WAIT（时间等待）状态。注意此时TCP连接还没有释放，必须经过2∗∗MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。</p>
+</li>
+<li><p>服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。</p>
+</li>
+</ol>
+<ul>
+<li><strong>被动方收到请求关闭以后，被动方关闭收通道</strong>，仅仅表示对方<strong>不再发送数据了但是还能接收数据</strong>，被动方也未必全部数据都发送给主动方了，所以被动方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给主动方来表示同意现在关闭连接，因此，被动方ACK和FIN一般都会分开发送。</li>
 </ul>
 
 
@@ -233,12 +274,12 @@ var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2019/01/24/swagger/" data-toggle="tooltip" data-placement="top" title="spring boot 使用 swagger 404">&larr; Previous Post</a>
+                            <a href="/2019/04/12/node/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2019/01/23/WAR/" data-toggle="tooltip" data-placement="top" title="部署Spring Boot 的war包到Tomcat服务器">Next Post &rarr;</a>
+                            <a href="/2019/03/20/Generics/" data-toggle="tooltip" data-placement="top" title="泛型函数">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -265,13 +306,9 @@ var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#C#" title="C#">C#</a>
+                          <a class="tag" href="/tags/#网络" title="网络">网络</a>
                         
-                          <a class="tag" href="/tags/#Linq" title="Linq">Linq</a>
-                        
-                          <a class="tag" href="/tags/#lamdba" title="lamdba">lamdba</a>
-                        
-                          <a class="tag" href="/tags/#JAVA" title="JAVA">JAVA</a>
+                          <a class="tag" href="/tags/#TCP/IP" title="TCP/IP">TCP/IP</a>
                         
                     </div>
                 </section>

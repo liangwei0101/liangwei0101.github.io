@@ -13,11 +13,11 @@
 
     <title>
         
-          Lambda 的记录 - 梁小生 | Blog
+          泛型函数 - 梁小生 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.liangwei.com/2019/01/23/linq/">
+    <link rel="canonical" href="http://www.liangwei.com/2019/03/20/Generics/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -148,7 +148,7 @@
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
-        background-image: url('psb.jpg')
+        background-image: url('../../../../../img/article_bg.jpg')
     }
 </style>
 <header class="intro-header">
@@ -158,20 +158,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#C#" title="C#">C#</a>
-                        
-                          <a class="tag" href="/tags/#Linq" title="Linq">Linq</a>
-                        
-                          <a class="tag" href="/tags/#lamdba" title="lamdba">lamdba</a>
-                        
-                          <a class="tag" href="/tags/#JAVA" title="JAVA">JAVA</a>
+                          <a class="tag" href="/tags/#面向对象" title="面向对象">面向对象</a>
                         
                     </div>
-                    <h1>Lambda 的记录</h1>
-                    <h2 class="subheading"></h2>
+                    <h1>泛型函数</h1>
+                    <h2 class="subheading">面向对象语言中的泛型</h2>
                     <span class="meta">
                         Posted by 梁小生 on
-                        2019-01-23
+                        2019-03-20
                     </span>
                 </div>
             </div>
@@ -190,40 +184,26 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2 id="Java中的Lambda的使用"><a href="#Java中的Lambda的使用" class="headerlink" title="Java中的Lambda的使用"></a>Java中的Lambda的使用</h2><ul>
-<li><p><strong>filter</strong>返回序列中满足条件的元素集合</p>
-<pre><code>// 从集合中返回Name等于&quot;liang&quot;的集合
-List&lt;User&gt; userListOrderBy= userList.stream().filter((User u) -&gt; u.getName().equals(&quot;liang&quot;)).collect(Collectors.toList());
-</code></pre></li>
-<li><p><strong>sort</strong> 集合排序</p>
-<pre><code>// 将集合已No字段升序排序，若是要降序 user2.getNo() - user1.getNo() 即可
-Collections.sort(userList,(user1, user2) -&gt; user1.getNo() - user2.getNo());
-</code></pre></li>
-</ul>
-<h2 id="C-中常用Lambda和Linq结合"><a href="#C-中常用Lambda和Linq结合" class="headerlink" title="C# 中常用Lambda和Linq结合"></a>C# 中常用Lambda和Linq结合</h2><ul>
-<li><p>C# <strong>FirstOrDefault()</strong>，返回序列中满足条件的第一个元素；如果未找到这样的元素，则返回null</p>
-<pre><code>// 从集合中返回Value为&quot;1&quot;, IconKey
-var obij = FuncCache.FirstOrDefault(p =&gt; p.Value == &quot;1&quot; &amp;&amp; p.IconKey == &quot;2&quot;);
-</code></pre></li>
-<li><p>C# <strong>Where()</strong>，从集合中挑出符合条件的多个项</p>
-<pre><code>// 将BranchNoOption集合中的EnableStatus字段为&apos;1&apos;的集合挑选出来
-BranchNoOption = new ObservableCollection&lt;F120061_Info&gt;(BranchNoOption.Where(p =&gt; p.EnableStatus == &apos;1&apos;));
-</code></pre></li>
-<li><p>C# <strong>OrderBy()、OrderByDescending()</strong>，将集合按某个字段进行升序或者降序排序</p>
-<pre><code>// 将workFlowDtoList集合按AuditLevel字段升序排序
-workFlowDtoList = new List&lt;WorkFlowDto&gt;(workFlowDtoList.OrderBy(s =&gt; s.AuditLevel));
-</code></pre></li>
-<li><p>C# <strong>GroupBy()</strong>，集合元素分组</p>
-<pre><code>// studentGroup 为按studentList按ClassName分类好的集合
-var studentGroup = studentList.GroupBy(s =&gt; s.ClassName);
-</code></pre></li>
-<li><p>C# <strong>Select()</strong>，挑选出集合中的字段的值变成一个：挑选出字段的新集合</p>
-<pre><code>// branchNoList 为按F360576_InfoList挑选出的所有BranchNo集合
-var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
-</code></pre></li>
-<li><p>C# <strong>中Where扩展</strong></p>
-  <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 挑选出集合中名称不为1或者2的</span></span><br><span class="line"></span><br><span class="line">public void <span class="keyword">Test</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span>  testList = new ObservableCollection&lt;MyClass&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (int i = 0; i &lt; 1000; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> <span class="keyword">test</span> = new MyClass();</span><br><span class="line">        <span class="keyword">test</span>.Name = i.<span class="keyword">ToString</span>();</span><br><span class="line">        <span class="keyword">test</span>.Value = i.<span class="keyword">ToString</span>();</span><br><span class="line">        testList.Add(<span class="keyword">test</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> listTemp = testList.Where(s =&gt; !<span class="string">"1,2"</span>.Contains(s.Name)).ToList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
+                <h1 id="泛型函数"><a href="#泛型函数" class="headerlink" title="泛型函数"></a>泛型函数</h1><blockquote>
+<p>泛型，即“参数化类型”。一提到参数，最熟悉的就是定义方法时有形参，然后调用此方法时传递实参。那么参数化类型怎么理解呢？顾名思义，就是将类型由原来的具体的类型参数化，类似于方法中的变量参数，此时类型也定义成参数形式（可以称之为类型形参），然后在使用/调用时传入具体的类型。 ——来自百度                                                                            </p>
+</blockquote>
+<p><strong>自我理解</strong>：泛型函数就是，你定义函数时候，是万能类型。在调用的时候，只要你把具体的类型传进去就好。好处呢，就是代码的复用，减少代码量。</p>
+<p>在面向对象的语言中都是有泛型的这个概念和实现的。比如说：JAVA、C#、C++、TypeScript等等。</p>
+<p>其实泛型是用的很广泛的，特别是在写底层框架的时候。当大家去看源码的时候，会看到很多泛型。最近的工作中也用到了泛型，算是写底层吧，因为给别人调用。</p>
+<p><strong>工作需求</strong>是这样的 ，使用TCP/IP协议，从客户端发送 “结构体”到服务端。一般都是会将数据转化成<strong>byte[]</strong>,再进行数据的传送。查资料和用泛型改造后：</p>
+<p>C#代码</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 结构体转byte数组</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">byte</span>[] StructToBytes&lt;T&gt;(T structParams)</span><br><span class="line">&#123;</span><br><span class="line">    var <span class="built_in">size</span> = Marshal.SizeOf(structParams);</span><br><span class="line">    var <span class="built_in">buffer</span> = Marshal.AllocHGlobal(<span class="built_in">size</span>);</span><br><span class="line">    <span class="built_in">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        Marshal.StructureToPtr(structParams, <span class="built_in">buffer</span>, false);</span><br><span class="line">        var bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="built_in">size</span>];</span><br><span class="line">        Marshal.Copy(<span class="built_in">buffer</span>, bytes, <span class="number">0</span>, <span class="built_in">size</span>);</span><br><span class="line">        <span class="built_in">return</span> bytes;</span><br><span class="line">    &#125;</span><br><span class="line">    finally</span><br><span class="line">    &#123;</span><br><span class="line">        Marshal.FreeHGlobal(<span class="built_in">buffer</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 结构体转byte数组</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> T BytesToStruct&lt;T&gt;(<span class="keyword">byte</span>[] arr) where T : <span class="keyword">new</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// where后面的泛型约束：参数需要有一个无参的构造函数</span></span><br><span class="line">    T structType = <span class="keyword">new</span> T();</span><br><span class="line">    var <span class="built_in">size</span> = Marshal.SizeOf(structType);</span><br><span class="line">    var ptr = Marshal.AllocHGlobal(<span class="built_in">size</span>);</span><br><span class="line"></span><br><span class="line">    Marshal.Copy(arr, <span class="number">0</span>, ptr, <span class="built_in">size</span>);</span><br><span class="line">    structType = (T)Marshal.PtrToStructure(ptr, structType.GetType());</span><br><span class="line">    Marshal.FreeHGlobal(ptr);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">return</span> structType;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">TestStruct0</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> count;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> key;</span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">TestStruct1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> count1;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> key1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// testStruct0 为实例</span></span><br><span class="line">StructToBytes&lt;TestStruct0&gt;(testStruct0)</span><br><span class="line"><span class="comment">// testStruct1 为实例</span></span><br><span class="line">StructToBytes&lt;TestStruct1&gt;(testStruct1)</span><br></pre></td></tr></table></figure>
+<p>在方法写成泛型以后，无论结构体是什么，函数只需要写一遍。调用方只需要写结构体的类型，和传入相应的实例就可以，而不需要写多个函数。对于参数不一样的而实现是一样的函数，大家可以考虑写成泛型方法或者用接口。</p>
+<p>因为泛型在多种面向对象语言中均有实现，为了广大水友能更好的理解，或者说消除语言方面的区别。接下来写一个C#、JAVA、typescript的简单泛型函数版本。</p>
+<p>C#的泛型函数：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public void Test<span class="params">&lt;T&gt;</span>(T params)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">// TODO    </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用实例1： Student为类型，student为传入参数</span></span><br><span class="line">Test<span class="params">&lt;Student&gt;</span>(student);</span><br><span class="line"><span class="comment">// 调用实例2： String为类型</span></span><br><span class="line">Test<span class="params">&lt;String&gt;</span>(<span class="string">"我是参数"</span>)</span><br><span class="line"><span class="comment">// 调用实例3：Int为类型</span></span><br><span class="line">Test<span class="params">&lt;Int&gt;</span>(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<p>Java中没有Struct，我们将用简单的例子：</p>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 返回值为T类型的实例</span><br><span class="line">public &lt;T&gt; T genericMethod(Class&lt;T&gt; tClass)throws InstantiationException ,</span><br><span class="line">  IllegalAccessException&#123;</span><br><span class="line">        T<span class="built_in"> instance </span>= tClass.newInstance();</span><br><span class="line">       <span class="built_in"> return </span>instance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用</span></span><br><span class="line">test1 obj1 = genericMethod(<span class="keyword">Class</span>.forName(<span class="string">"com.test.test1"</span>))<span class="comment">;</span></span><br><span class="line">test2 obj2 = genericMethod(<span class="keyword">Class</span>.forName(<span class="string">"com.test.test2"</span>))<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>TypeScript 泛型函数代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="keyword">let</span> output0 Identity(<span class="number">3</span>);</span><br><span class="line"><span class="keyword">let</span> output1 = identity(<span class="string">"myString"</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>自我理解用法</strong>：泛型函数一般用在基础类型的函数较多，像Int、String、struct，这种不能用接口限定的，用泛型去写方法。如果是Object类型的话，可以用接口是去限定参数。记得有一句话叫对接口编程，而不是对实现编程。</p>
 
 
                 <hr>
@@ -233,12 +213,12 @@ var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2019/01/24/swagger/" data-toggle="tooltip" data-placement="top" title="spring boot 使用 swagger 404">&larr; Previous Post</a>
+                            <a href="/2019/03/27/TCP-IP/" data-toggle="tooltip" data-placement="top" title="TCP/IP">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2019/01/23/WAR/" data-toggle="tooltip" data-placement="top" title="部署Spring Boot 的war包到Tomcat服务器">Next Post &rarr;</a>
+                            <a href="/2019/03/08/PromisesAndFuture/" data-toggle="tooltip" data-placement="top" title="PromisesAndFuture">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -265,13 +245,7 @@ var branchNoList = F360576_InfoList.Select(s=&gt;s.BranchNo);
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#C#" title="C#">C#</a>
-                        
-                          <a class="tag" href="/tags/#Linq" title="Linq">Linq</a>
-                        
-                          <a class="tag" href="/tags/#lamdba" title="lamdba">lamdba</a>
-                        
-                          <a class="tag" href="/tags/#JAVA" title="JAVA">JAVA</a>
+                          <a class="tag" href="/tags/#面向对象" title="面向对象">面向对象</a>
                         
                     </div>
                 </section>
